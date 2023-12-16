@@ -13,11 +13,14 @@ use Illuminate\Support\HtmlString;
 use Illuminate\View\Component;
 use Illuminate\View\Factory;
 use Illuminate\View\View;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 
 class ComponentTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     protected $viewFactory;
 
     protected $config;
@@ -42,15 +45,13 @@ class ComponentTest extends TestCase
 
     protected function tearDown(): void
     {
-        m::close();
+        parent::tearDown();
 
         Facade::clearResolvedInstances();
         Facade::setFacadeApplication(null);
         Container::setInstance(null);
         Component::flushCache();
         Component::forgetFactory();
-
-        parent::tearDown();
     }
 
     public function testInlineViewsGetCreated()

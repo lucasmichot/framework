@@ -7,17 +7,15 @@ use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Foundation\Console\RouteListCommand;
 use Illuminate\Foundation\Http\Kernel;
 use Illuminate\Routing\Router;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 
 class RouteListCommandTest extends TestCase
 {
-    protected Application $app;
+    use MockeryPHPUnitIntegration;
 
-    protected function tearDown(): void
-    {
-        m::close();
-    }
+    protected Application $app;
 
     protected function setUp(): void
     {

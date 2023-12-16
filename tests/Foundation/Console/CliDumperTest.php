@@ -14,6 +14,8 @@ class CliDumperTest extends TestCase
 {
     protected function setUp(): void
     {
+        parent::setUp();
+
         CliDumper::resolveDumpSourceUsing(function () {
             return [
                 '/my-work-director/app/routes/console.php',
@@ -226,6 +228,8 @@ class CliDumperTest extends TestCase
 
     protected function tearDown(): void
     {
+        parent::tearDown();
+
         CliDumper::resolveDumpSourceUsing(null);
     }
 }

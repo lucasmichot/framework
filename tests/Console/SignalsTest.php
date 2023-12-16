@@ -16,15 +16,17 @@ class SignalsTest extends TestCase
 
     protected function setUp(): void
     {
+        parent::setUp();
+
         $this->registry = new FakeSignalsRegistry();
         $this->signals = new Signals($this->registry);
     }
 
     protected function tearDown(): void
     {
-        $this->state = null;
-
         parent::tearDown();
+
+        $this->state = null;
     }
 
     public function testRegister()

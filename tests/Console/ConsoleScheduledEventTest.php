@@ -6,11 +6,14 @@ use Illuminate\Console\Scheduling\Event;
 use Illuminate\Console\Scheduling\EventMutex;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Carbon;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 
 class ConsoleScheduledEventTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     /**
      * The default configuration timezone.
      *
@@ -20,15 +23,18 @@ class ConsoleScheduledEventTest extends TestCase
 
     protected function setUp(): void
     {
+        parent::setUp();
+
         $this->defaultTimezone = date_default_timezone_get();
         date_default_timezone_set('UTC');
     }
 
     protected function tearDown(): void
     {
+        parent::tearDown();
+
         date_default_timezone_set($this->defaultTimezone);
         Carbon::setTestNow(null);
-        m::close();
     }
 
     public function testBasicCronCompilation()

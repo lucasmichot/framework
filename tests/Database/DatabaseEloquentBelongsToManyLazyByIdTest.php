@@ -10,6 +10,8 @@ class DatabaseEloquentBelongsToManyLazyByIdTest extends TestCase
 {
     protected function setUp(): void
     {
+        parent::setUp();
+
         $db = new DB;
 
         $db->addConnection([
@@ -70,6 +72,8 @@ class DatabaseEloquentBelongsToManyLazyByIdTest extends TestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
+
         $this->schema()->drop('users');
         $this->schema()->drop('articles');
         $this->schema()->drop('article_user');

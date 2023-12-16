@@ -4,16 +4,14 @@ namespace Illuminate\Tests\Queue;
 
 use Illuminate\Queue\Listener;
 use Illuminate\Queue\ListenerOptions;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Process\Process;
 
 class QueueListenerTest extends TestCase
 {
-    protected function tearDown(): void
-    {
-        m::close();
-    }
+    use MockeryPHPUnitIntegration;
 
     public function testRunProcessCallsProcess()
     {

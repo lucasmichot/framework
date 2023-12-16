@@ -16,21 +16,17 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Str;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use Orchestra\Testbench\TestCase;
 
 class SendingMailNotificationsTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     public $mailFactory;
     public $mailer;
     public $markdown;
-
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-
-        m::close();
-    }
 
     protected function getEnvironmentSetUp($app)
     {

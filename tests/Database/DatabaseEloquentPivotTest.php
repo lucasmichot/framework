@@ -8,16 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 use Illuminate\Database\Query\Grammars\Grammar;
 use Illuminate\Database\Query\Processors\Processor;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 
 class DatabaseEloquentPivotTest extends TestCase
 {
-    protected function tearDown(): void
-    {
-        m::close();
-    }
+    use MockeryPHPUnitIntegration;
 
     public function testPropertiesAreSetCorrectly()
     {

@@ -38,9 +38,9 @@ class RedisQueueTest extends TestCase
 
     protected function tearDown(): void
     {
-        $this->tearDownRedis();
-
         parent::tearDown();
+
+        $this->tearDownRedis();
     }
 
     /**

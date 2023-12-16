@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
 use Illuminate\Events\NullDispatcher;
 use Illuminate\Testing\Assert;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Input\ArrayInput;
@@ -20,6 +21,8 @@ use Symfony\Component\Console\Output\NullOutput;
 
 class SeedCommandTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     public function testHandle()
     {
         $input = new ArrayInput(['--force' => true, '--database' => 'sqlite']);
@@ -105,9 +108,9 @@ class SeedCommandTest extends TestCase
 
     protected function tearDown(): void
     {
-        Model::unsetEventDispatcher();
+        parent::tearDown();
 
-        m::close();
+        Model::unsetEventDispatcher();
     }
 }
 

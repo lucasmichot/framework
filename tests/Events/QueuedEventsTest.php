@@ -9,15 +9,13 @@ use Illuminate\Events\CallQueuedListener;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Queue\QueueManager;
 use Illuminate\Support\Testing\Fakes\QueueFake;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 
 class QueuedEventsTest extends TestCase
 {
-    protected function tearDown(): void
-    {
-        m::close();
-    }
+    use MockeryPHPUnitIntegration;
 
     public function testQueuedEventHandlersAreQueued()
     {

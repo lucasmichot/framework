@@ -4,17 +4,20 @@ namespace Illuminate\Tests\Integration\Events;
 
 use Illuminate\Database\DatabaseTransactionsManager;
 use Illuminate\Support\Facades\Event;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use Orchestra\Testbench\TestCase;
 
 class ListenerTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     protected function tearDown(): void
     {
+        parent::tearDown();
+
         ListenerTestListener::$ran = false;
         ListenerTestListenerAfterCommit::$ran = false;
-
-        m::close();
     }
 
     public function testClassListenerRunsNormallyIfNoTransactions()

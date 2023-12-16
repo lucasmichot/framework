@@ -22,9 +22,9 @@ class ImplicitModelRouteBindingTest extends TestCase
 
     protected function tearDown(): void
     {
-        $this->tearDownInteractsWithPublishedFiles();
-
         parent::tearDown();
+
+        $this->tearDownInteractsWithPublishedFiles();
     }
 
     protected function defineEnvironment($app): void

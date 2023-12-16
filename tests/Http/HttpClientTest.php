@@ -26,6 +26,7 @@ use Illuminate\Support\Fluent;
 use Illuminate\Support\Sleep;
 use Illuminate\Support\Str;
 use JsonSerializable;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use OutOfBoundsException;
 use PHPUnit\Framework\AssertionFailedError;
@@ -37,6 +38,8 @@ use Symfony\Component\VarDumper\VarDumper;
 
 class HttpClientTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     /**
      * @var \Illuminate\Http\Client\Factory
      */
@@ -47,13 +50,6 @@ class HttpClientTest extends TestCase
         parent::setUp();
 
         $this->factory = new Factory;
-    }
-
-    protected function tearDown(): void
-    {
-        m::close();
-
-        parent::tearDown();
     }
 
     public function testStubbedResponsesAreReturnedAfterFaking()

@@ -18,6 +18,7 @@ use Illuminate\Database\PostgresConnection;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\CallQueuedClosure;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use RuntimeException;
@@ -25,8 +26,12 @@ use stdClass;
 
 class BusBatchTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     protected function setUp(): void
     {
+        parent::setUp();
+
         $db = new DB;
 
         $db->addConnection([
@@ -73,11 +78,11 @@ class BusBatchTest extends TestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
+
         unset($_SERVER['__finally.batch'], $_SERVER['__progress.batch'], $_SERVER['__then.batch'], $_SERVER['__catch.batch'], $_SERVER['__catch.exception']);
 
         $this->schema()->drop('job_batches');
-
-        m::close();
     }
 
     public function test_jobs_can_be_added_to_the_batch()

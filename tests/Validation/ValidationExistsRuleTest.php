@@ -20,6 +20,8 @@ class ValidationExistsRuleTest extends TestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
+
         $db = new DB;
 
         $db->addConnection([
@@ -290,6 +292,8 @@ class ValidationExistsRuleTest extends TestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
+
         $this->schema('default')->drop('users');
     }
 

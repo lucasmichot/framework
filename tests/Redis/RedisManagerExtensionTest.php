@@ -5,11 +5,14 @@ namespace Illuminate\Tests\Redis;
 use Illuminate\Contracts\Redis\Connector;
 use Illuminate\Foundation\Application;
 use Illuminate\Redis\RedisManager;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 
 class RedisManagerExtensionTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     /**
      * @var \Illuminate\Redis\RedisManager
      */
@@ -41,11 +44,6 @@ class RedisManagerExtensionTest extends TestCase
         $this->redis->extend('my_custom_driver', function () {
             return new FakeRedisConnector;
         });
-    }
-
-    protected function tearDown(): void
-    {
-        m::close();
     }
 
     public function testUsingCustomRedisConnectorWithSingleRedisInstance()

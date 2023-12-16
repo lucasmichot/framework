@@ -8,12 +8,15 @@ use Illuminate\Container\Container;
 use Illuminate\Contracts\Routing\BindingRegistrar;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class BroadcasterTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     /**
      * @var \Illuminate\Tests\Broadcasting\FakeBroadcaster
      */
@@ -28,7 +31,7 @@ class BroadcasterTest extends TestCase
 
     protected function tearDown(): void
     {
-        m::close();
+        parent::tearDown();
 
         Container::setInstance(null);
     }

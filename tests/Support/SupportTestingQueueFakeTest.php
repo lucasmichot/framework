@@ -7,12 +7,15 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Foundation\Application;
 use Illuminate\Queue\QueueManager;
 use Illuminate\Support\Testing\Fakes\QueueFake;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
 
 class SupportTestingQueueFakeTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     /**
      * @var \Illuminate\Support\Testing\Fakes\QueueFake
      */
@@ -26,15 +29,9 @@ class SupportTestingQueueFakeTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->fake = new QueueFake(new Application);
         $this->job = new JobStub;
-    }
-
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-
-        m::close();
     }
 
     public function testAssertPushed()

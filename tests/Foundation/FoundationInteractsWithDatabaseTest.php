@@ -9,6 +9,7 @@ use Illuminate\Database\Query\Builder;
 use Illuminate\Foundation\Testing\Concerns\InteractsWithDatabase;
 use Illuminate\Foundation\Testing\TestCase as TestingTestCase;
 use Illuminate\Support\Facades\DB;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use Orchestra\Testbench\Concerns\CreatesApplication;
 use PHPUnit\Framework\ExpectationFailedException;
@@ -16,6 +17,8 @@ use PHPUnit\Framework\TestCase;
 
 class FoundationInteractsWithDatabaseTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     use InteractsWithDatabase;
 
     protected $table = 'products';
@@ -29,12 +32,9 @@ class FoundationInteractsWithDatabaseTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->connection = m::mock(Connection::class);
-    }
+        parent::setUp();
 
-    protected function tearDown(): void
-    {
-        m::close();
+        $this->connection = m::mock(Connection::class);
     }
 
     public function testSeeInDatabaseFindsResults()

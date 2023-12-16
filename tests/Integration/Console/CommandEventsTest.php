@@ -33,6 +33,8 @@ class CommandEventsTest extends TestCase
 
     protected function setUp(): void
     {
+        parent::setUp();
+
         $this->afterApplicationCreated(function () {
             $this->files = new Filesystem;
             $this->logfile = storage_path(sprintf('logs/command_events_test_%s.log', (string) Str::random()));
@@ -44,8 +46,6 @@ class CommandEventsTest extends TestCase
             unset($this->files);
             unset($this->logfile);
         });
-
-        parent::setUp();
     }
 
     /**

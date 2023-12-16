@@ -30,9 +30,9 @@ class EventFakeTest extends TestCase
 
     protected function tearDown(): void
     {
-        Schema::dropIfExists('posts');
-
         parent::tearDown();
+
+        Schema::dropIfExists('posts');
     }
 
     public function testNonFakedEventGetsProperlyDispatched()

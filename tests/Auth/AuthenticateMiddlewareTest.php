@@ -11,16 +11,21 @@ use Illuminate\Auth\RequestGuard;
 use Illuminate\Config\Repository as Config;
 use Illuminate\Container\Container;
 use Illuminate\Http\Request;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 
 class AuthenticateMiddlewareTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     protected $auth;
 
     protected function setUp(): void
     {
+        parent::setUp();
+
         $container = Container::setInstance(new Container);
 
         $this->auth = new AuthManager($container);
@@ -32,7 +37,7 @@ class AuthenticateMiddlewareTest extends TestCase
 
     protected function tearDown(): void
     {
-        m::close();
+        parent::tearDown();
 
         Container::setInstance(null);
     }

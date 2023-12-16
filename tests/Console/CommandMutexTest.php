@@ -25,6 +25,8 @@ class CommandMutexTest extends TestCase
 
     protected function setUp(): void
     {
+        parent::setUp();
+
         $this->command = new class extends Command implements Isolatable
         {
             public $ran = 0;

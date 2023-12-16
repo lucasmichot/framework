@@ -10,6 +10,8 @@ class DatabaseEloquentBelongsToManyAggregateTest extends TestCase
 {
     protected function setUp(): void
     {
+        parent::setUp();
+
         $db = new DB;
 
         $db->addConnection([
@@ -89,6 +91,8 @@ class DatabaseEloquentBelongsToManyAggregateTest extends TestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
+
         $this->schema()->drop('orders');
         $this->schema()->drop('products');
     }

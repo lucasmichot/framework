@@ -6,12 +6,15 @@ use Aws\Sqs\SqsClient;
 use Illuminate\Container\Container;
 use Illuminate\Queue\Jobs\SqsJob;
 use Illuminate\Queue\SqsQueue;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 
 class QueueSqsJobTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     protected $key;
     protected $secret;
     protected $service;
@@ -32,6 +35,8 @@ class QueueSqsJobTest extends TestCase
 
     protected function setUp(): void
     {
+        parent::setUp();
+
         $this->key = 'AMAZONSQSKEY';
         $this->secret = 'AmAz0n+SqSsEcReT+aLpHaNuM3R1CsTr1nG';
         $this->service = 'sqs';
@@ -63,11 +68,6 @@ class QueueSqsJobTest extends TestCase
             'MessageId' => $this->mockedMessageId,
             'Attributes' => ['ApproximateReceiveCount' => 1],
         ];
-    }
-
-    protected function tearDown(): void
-    {
-        m::close();
     }
 
     public function testFireProperlyCallsTheJobHandler()

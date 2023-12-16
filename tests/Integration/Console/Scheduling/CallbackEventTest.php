@@ -5,17 +5,13 @@ namespace Illuminate\Tests\Integration\Console\Scheduling;
 use Exception;
 use Illuminate\Console\Scheduling\CallbackEvent;
 use Illuminate\Console\Scheduling\EventMutex;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use Orchestra\Testbench\TestCase;
 
 class CallbackEventTest extends TestCase
 {
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-
-        m::close();
-    }
+    use MockeryPHPUnitIntegration;
 
     public function testDefaultResultIsSuccess()
     {

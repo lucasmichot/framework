@@ -26,6 +26,8 @@ class MaintenanceModeTest extends TestCase
 
     protected function tearDown(): void
     {
+        parent::tearDown();
+
         @unlink(storage_path('framework/down'));
     }
 

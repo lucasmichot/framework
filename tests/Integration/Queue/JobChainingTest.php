@@ -34,6 +34,8 @@ class JobChainingTest extends QueueTestCase
 
     protected function setUp(): void
     {
+        parent::setUp();
+
         $this->afterApplicationCreated(function () {
             JobRunRecorder::reset();
         });
@@ -44,8 +46,6 @@ class JobChainingTest extends QueueTestCase
             JobChainingTestThirdJob::$ran = false;
             static::$catchCallbackRan = false;
         });
-
-        parent::setUp();
     }
 
     public function testJobsCanBeChainedOnSuccess()

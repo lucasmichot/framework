@@ -7,12 +7,15 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\ItemNotFoundException;
 use Illuminate\Support\LazyCollection;
 use Illuminate\Support\MultipleItemsFoundException;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 
 class SupportLazyCollectionIsLazyTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     use Concerns\CountsEnumerations;
 
     public function testMakeWithClosureIsLazy()
@@ -1325,8 +1328,6 @@ class SupportLazyCollectionIsLazyTest extends TestCase
                     ->all();
             });
         });
-
-        m::close();
     }
 
     public function testTakeWhileIsLazy()

@@ -17,6 +17,8 @@ class HtmlDumperTest extends TestCase
 
     protected function setUp(): void
     {
+        parent::setUp();
+
         HtmlDumper::resolveDumpSourceUsing(function () {
             return [
                 '/my-work-director/app/routes/console.php',
@@ -276,6 +278,8 @@ class HtmlDumperTest extends TestCase
 
     protected function tearDown(): void
     {
+        parent::tearDown();
+
         HtmlDumper::resolveDumpSourceUsing(null);
         Container::setInstance(null);
     }

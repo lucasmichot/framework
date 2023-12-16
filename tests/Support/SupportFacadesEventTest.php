@@ -13,11 +13,14 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\Testing\Fakes\EventFake;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 
 class SupportFacadesEventTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     private $events;
 
     protected function setUp(): void
@@ -37,10 +40,10 @@ class SupportFacadesEventTest extends TestCase
 
     protected function tearDown(): void
     {
+        parent::tearDown();
+
         Event::clearResolvedInstances();
         Event::setFacadeApplication(null);
-
-        m::close();
     }
 
     public function testFakeFor()

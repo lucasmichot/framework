@@ -9,21 +9,27 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Database\UniqueConstraintViolationException;
 use Illuminate\Support\Carbon;
-use Mockery;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
+use Mockery as m;
 use PDO;
 use PHPUnit\Framework\TestCase;
 
 class DatabaseEloquentBuilderCreateOrFirstTest extends TestCase
 {
-    public function setUp(): void
+    use MockeryPHPUnitIntegration;
+
+    protected function setUp(): void
     {
+        parent::setUp();
+
         Carbon::setTestNow('2023-01-01 00:00:00');
     }
 
     protected function tearDown(): void
     {
+        parent::tearDown();
+
         Carbon::setTestNow();
-        Mockery::close();
     }
 
     public function testCreateOrFirstMethodCreatesNewRecord(): void
@@ -306,17 +312,17 @@ class DatabaseEloquentBuilderCreateOrFirstTest extends TestCase
         $processorClass = 'Illuminate\Database\Query\Processors\\'.$database.'Processor';
         $grammar = new $grammarClass;
         $processor = new $processorClass;
-        $connection = Mockery::mock(ConnectionInterface::class, ['getQueryGrammar' => $grammar, 'getPostProcessor' => $processor]);
+        $connection = m::mock(ConnectionInterface::class, ['getQueryGrammar' => $grammar, 'getPostProcessor' => $processor]);
         $connection->shouldReceive('query')->andReturnUsing(function () use ($connection, $grammar, $processor) {
             return new Builder($connection, $grammar, $processor);
         });
         $connection->shouldReceive('getDatabaseName')->andReturn('database');
-        $resolver = Mockery::mock(ConnectionResolverInterface::class, ['connection' => $connection]);
+        $resolver = m::mock(ConnectionResolverInterface::class, ['connection' => $connection]);
 
         $class = get_class($model);
         $class::setConnectionResolver($resolver);
 
-        $connection->shouldReceive('getPdo')->andReturn($pdo = Mockery::mock(PDO::class));
+        $connection->shouldReceive('getPdo')->andReturn($pdo = m::mock(PDO::class));
 
         foreach ($lastInsertIds as $id) {
             $pdo->expects('lastInsertId')->andReturn($id);

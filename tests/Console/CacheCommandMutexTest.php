@@ -7,12 +7,15 @@ use Illuminate\Console\Command;
 use Illuminate\Contracts\Cache\Factory;
 use Illuminate\Contracts\Cache\LockProvider;
 use Illuminate\Contracts\Cache\Repository;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use Mockery\MockInterface;
 use PHPUnit\Framework\TestCase;
 
 class CacheCommandMutexTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     /**
      * @var \Illuminate\Console\CacheCommandMutex
      */
@@ -35,6 +38,8 @@ class CacheCommandMutexTest extends TestCase
 
     protected function setUp(): void
     {
+        parent::setUp();
+
         $this->cacheFactory = m::mock(Factory::class);
         $this->cacheRepository = m::mock(Repository::class);
         $this->mutex = new CacheCommandMutex($this->cacheFactory);
@@ -42,12 +47,6 @@ class CacheCommandMutexTest extends TestCase
         {
             protected $name = 'command-name';
         };
-    }
-
-    protected function tearDown(): void
-    {
-        m::close();
-        parent::tearDown();
     }
 
     public function testCanCreateMutex()

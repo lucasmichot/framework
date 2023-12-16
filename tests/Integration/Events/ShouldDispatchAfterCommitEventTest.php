@@ -5,18 +5,20 @@ namespace Illuminate\Tests\Integration\Events;
 use Illuminate\Contracts\Events\ShouldDispatchAfterCommit;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Event;
-use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Orchestra\Testbench\TestCase;
 
 class ShouldDispatchAfterCommitEventTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     protected function tearDown(): void
     {
+        parent::tearDown();
+
         TransactionUnawareTestEvent::$ran = false;
         ShouldDispatchAfterCommitTestEvent::$ran = false;
         AnotherShouldDispatchAfterCommitTestEvent::$ran = false;
-
-        m::close();
     }
 
     public function testEventIsDispatchedIfThereIsNoTransaction()

@@ -8,11 +8,14 @@ use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\UserProvider;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Testing\Concerns\InteractsWithAuthentication;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 
 class FoundationAuthenticationTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     use InteractsWithAuthentication;
 
     /**
@@ -47,11 +50,6 @@ class FoundationAuthenticationTest extends TestCase
             ->andReturn($auth);
 
         return $guard;
-    }
-
-    protected function tearDown(): void
-    {
-        m::close();
     }
 
     public function testAssertAuthenticated()

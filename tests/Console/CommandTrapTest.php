@@ -17,6 +17,8 @@ class CommandTrapTest extends TestCase
 
     protected function setUp(): void
     {
+        parent::setUp();
+
         Signals::resolveAvailabilityUsing(fn () => true);
 
         $this->registry = new FakeSignalsRegistry();

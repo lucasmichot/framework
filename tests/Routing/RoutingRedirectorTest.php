@@ -7,12 +7,15 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 use Illuminate\Routing\UrlGenerator;
 use Illuminate\Session\Store;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\HeaderBag;
 
 class RoutingRedirectorTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     protected $headers;
     protected $request;
     protected $url;
@@ -21,6 +24,8 @@ class RoutingRedirectorTest extends TestCase
 
     protected function setUp(): void
     {
+        parent::setUp();
+
         $this->headers = m::mock(HeaderBag::class);
 
         $this->request = m::mock(Request::class);
@@ -44,11 +49,6 @@ class RoutingRedirectorTest extends TestCase
 
         $this->redirect = new Redirector($this->url);
         $this->redirect->setSession($this->session);
-    }
-
-    protected function tearDown(): void
-    {
-        m::close();
     }
 
     public function testBasicRedirectTo()

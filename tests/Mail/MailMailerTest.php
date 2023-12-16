@@ -10,16 +10,19 @@ use Illuminate\Mail\Mailer;
 use Illuminate\Mail\Message;
 use Illuminate\Mail\Transport\ArrayTransport;
 use Illuminate\Support\HtmlString;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 
 class MailMailerTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     protected function tearDown(): void
     {
-        unset($_SERVER['__mailer.test']);
+        parent::tearDown();
 
-        m::close();
+        unset($_SERVER['__mailer.test']);
     }
 
     public function testMailerSendSendsMessageWithProperViewContent()

@@ -12,6 +12,8 @@ class DatabaseEloquentHasOneThroughIntegrationTest extends TestCase
 {
     protected function setUp(): void
     {
+        parent::setUp();
+
         $db = new DB;
 
         $db->addConnection([
@@ -65,6 +67,8 @@ class DatabaseEloquentHasOneThroughIntegrationTest extends TestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
+
         $this->schema()->drop('users');
         $this->schema()->drop('contracts');
         $this->schema()->drop('positions');

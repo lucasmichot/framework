@@ -108,9 +108,9 @@ class TestCaseTest extends BaseTestCase
 
     protected function tearDown(): void
     {
-        ExampleTestCase::$latestResponse = null;
-
         parent::tearDown();
+
+        ExampleTestCase::$latestResponse = null;
     }
 }
 

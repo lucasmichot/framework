@@ -9,12 +9,15 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Model as Eloquent;
 use Illuminate\Support\Collection as BaseCollection;
 use LogicException;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 
 class DatabaseEloquentCollectionTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     /**
      * Setup the database schema.
      *
@@ -22,6 +25,8 @@ class DatabaseEloquentCollectionTest extends TestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
+
         $db = new DB;
 
         $db->addConnection([
@@ -57,10 +62,11 @@ class DatabaseEloquentCollectionTest extends TestCase
 
     protected function tearDown(): void
     {
+        parent::tearDown();
+
         $this->schema()->drop('users');
         $this->schema()->drop('articles');
         $this->schema()->drop('comments');
-        m::close();
     }
 
     public function testAddingItemsToCollection()

@@ -8,11 +8,14 @@ use Illuminate\Container\Container;
 use Illuminate\Queue\Jobs\SqsJob;
 use Illuminate\Queue\SqsQueue;
 use Illuminate\Support\Carbon;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 
 class QueueSqsQueueTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     protected $sqs;
     protected $account;
     protected $queueName;
@@ -30,13 +33,10 @@ class QueueSqsQueueTest extends TestCase
     protected $mockedReceiveEmptyMessageResponseModel;
     protected $mockedQueueAttributesResponseModel;
 
-    protected function tearDown(): void
-    {
-        m::close();
-    }
-
     protected function setUp(): void
     {
+        parent::setUp();
+
         // Use Mockery to mock the SqsClient
         $this->sqs = m::mock(SqsClient::class);
 

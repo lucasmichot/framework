@@ -9,15 +9,13 @@ use Illuminate\Notifications\ChannelManager;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Notifications\SendQueuedNotifications;
 use Illuminate\Support\Collection;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 
 class NotificationSendQueuedNotificationTest extends TestCase
 {
-    protected function tearDown(): void
-    {
-        m::close();
-    }
+    use MockeryPHPUnitIntegration;
 
     public function testNotificationsCanBeSent()
     {

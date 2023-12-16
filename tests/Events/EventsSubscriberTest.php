@@ -4,15 +4,13 @@ namespace Illuminate\Tests\Events;
 
 use Illuminate\Container\Container;
 use Illuminate\Events\Dispatcher;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 
 class EventsSubscriberTest extends TestCase
 {
-    protected function tearDown(): void
-    {
-        m::close();
-    }
+    use MockeryPHPUnitIntegration;
 
     public function testEventSubscribers()
     {

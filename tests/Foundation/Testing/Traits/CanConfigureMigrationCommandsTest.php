@@ -12,6 +12,8 @@ class CanConfigureMigrationCommandsTest extends TestCase
 
     protected function setUp(): void
     {
+        parent::setUp();
+
         $this->traitObject = new CanConfigureMigrationCommandsTestMockClass();
     }
 

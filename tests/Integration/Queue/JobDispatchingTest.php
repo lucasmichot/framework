@@ -15,12 +15,12 @@ class JobDispatchingTest extends QueueTestCase
 {
     protected function setUp(): void
     {
+        parent::setUp();
+
         $this->beforeApplicationDestroyed(function () {
             Job::$ran = false;
             Job::$value = null;
         });
-
-        parent::setUp();
     }
 
     public function testJobCanUseCustomMethodsAfterDispatch()

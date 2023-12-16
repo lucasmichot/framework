@@ -4,18 +4,14 @@ namespace Illuminate\Tests\Cache;
 
 use Illuminate\Cache\MemcachedConnector;
 use Memcached;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 
 class CacheMemcachedConnectorTest extends TestCase
 {
-    protected function tearDown(): void
-    {
-        m::close();
-
-        parent::tearDown();
-    }
+    use MockeryPHPUnitIntegration;
 
     public function testServersAreAddedCorrectly()
     {

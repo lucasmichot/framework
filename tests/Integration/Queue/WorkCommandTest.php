@@ -17,13 +17,13 @@ class WorkCommandTest extends QueueTestCase
 
     protected function setUp(): void
     {
+        parent::setUp();
+
         $this->beforeApplicationDestroyed(function () {
             FirstJob::$ran = false;
             SecondJob::$ran = false;
             ThirdJob::$ran = false;
         });
-
-        parent::setUp();
 
         $this->markTestSkippedWhenUsingSyncQueueDriver();
     }

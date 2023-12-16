@@ -19,13 +19,13 @@ class EloquentTransactionWithAfterCommitUsingRefreshDatabaseTest extends TestCas
 
     protected function setUp(): void
     {
+        parent::setUp();
+
         $this->beforeApplicationDestroyed(function () {
             foreach (array_keys($this->app['db']->getConnections()) as $name) {
                 $this->app['db']->purge($name);
             }
         });
-
-        parent::setUp();
     }
 
     protected function getEnvironmentSetUp($app)

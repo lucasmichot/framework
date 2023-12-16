@@ -4,6 +4,7 @@ namespace Illuminate\Tests\Session;
 
 use Illuminate\Contracts\Encryption\Encrypter;
 use Illuminate\Session\EncryptedStore;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
@@ -11,10 +12,7 @@ use SessionHandlerInterface;
 
 class EncryptedSessionStoreTest extends TestCase
 {
-    protected function tearDown(): void
-    {
-        m::close();
-    }
+    use MockeryPHPUnitIntegration;
 
     public function testSessionIsProperlyEncrypted()
     {

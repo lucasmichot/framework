@@ -11,10 +11,13 @@ use Illuminate\Database\Events\ModelsPruned;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use LogicException;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 
 class EloquentMassPrunableTest extends DatabaseTestCase
 {
+    use MockeryPHPUnitIntegration;
+
     protected function setUp(): void
     {
         parent::setUp();
@@ -99,8 +102,6 @@ class EloquentMassPrunableTest extends DatabaseTestCase
         parent::tearDown();
 
         Container::setInstance(null);
-
-        m::close();
     }
 }
 

@@ -44,11 +44,11 @@ class InteractsWithDeprecationHandlingTest extends TestCase
 
     protected function tearDown(): void
     {
+        parent::tearDown();
+
         set_error_handler($this->original);
 
         $this->originalDeprecationHandler = null;
         $this->deprecationsFound = false;
-
-        parent::tearDown();
     }
 }

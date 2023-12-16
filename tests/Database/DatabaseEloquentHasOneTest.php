@@ -8,21 +8,19 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Query\Builder as BaseBuilder;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 
 class DatabaseEloquentHasOneTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     protected $builder;
 
     protected $related;
 
     protected $parent;
-
-    protected function tearDown(): void
-    {
-        m::close();
-    }
 
     public function testHasOneWithDefault()
     {

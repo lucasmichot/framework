@@ -6,17 +6,15 @@ use Illuminate\Config\Repository;
 use Illuminate\Container\Container;
 use Illuminate\Support\Fluent;
 use Illuminate\Support\Traits\CapsuleManagerTrait;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 
 class SupportCapsuleManagerTraitTest extends TestCase
 {
-    use CapsuleManagerTrait;
+    use MockeryPHPUnitIntegration;
 
-    protected function tearDown(): void
-    {
-        m::close();
-    }
+    use CapsuleManagerTrait;
 
     public function testSetupContainerForCapsule()
     {

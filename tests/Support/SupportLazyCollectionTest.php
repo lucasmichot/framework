@@ -6,11 +6,14 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\LazyCollection;
 use InvalidArgumentException;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 
 class SupportLazyCollectionTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     public function testCanCreateEmptyCollection()
     {
         $this->assertSame([], LazyCollection::make()->all());
@@ -201,8 +204,6 @@ class SupportLazyCollectionTest extends TestCase
             ->all();
 
         $this->assertSame([1, 2], $results);
-
-        m::close();
     }
 
     public function testTapEach()

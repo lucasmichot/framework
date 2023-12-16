@@ -4,24 +4,22 @@ namespace Illuminate\Tests\Support;
 
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Support\Testing\Fakes\EventFake;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
 
 class SupportTestingEventFakeTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     protected $fake;
 
     protected function setUp(): void
     {
         parent::setUp();
-        $this->fake = new EventFake(m::mock(Dispatcher::class));
-    }
 
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-        m::close();
+        $this->fake = new EventFake(m::mock(Dispatcher::class));
     }
 
     public function testAssertDispatched()

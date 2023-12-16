@@ -18,8 +18,10 @@ use Orchestra\Testbench\TestCase;
  */
 class DynamoBatchTest extends TestCase
 {
-    public function setUp(): void
+    protected function setUp(): void
     {
+        parent::setUp();
+
         $this->afterApplicationCreated(function () {
             BatchRunRecorder::reset();
             app(DynamoBatchRepository::class)->createAwsDynamoTable();
@@ -28,8 +30,6 @@ class DynamoBatchTest extends TestCase
         $this->beforeApplicationDestroyed(function () {
             app(DynamoBatchRepository::class)->deleteAwsDynamoTable();
         });
-
-        parent::setUp();
     }
 
     protected function defineEnvironment($app)

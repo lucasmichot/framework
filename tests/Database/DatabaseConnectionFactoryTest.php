@@ -6,6 +6,7 @@ use Illuminate\Container\Container;
 use Illuminate\Database\Capsule\Manager as DB;
 use Illuminate\Database\Connectors\ConnectionFactory;
 use InvalidArgumentException;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use PDO;
 use PHPUnit\Framework\TestCase;
@@ -13,10 +14,14 @@ use ReflectionProperty;
 
 class DatabaseConnectionFactoryTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     protected $db;
 
     protected function setUp(): void
     {
+        parent::setUp();
+
         $this->db = new DB;
 
         $this->db->addConnection([
@@ -39,11 +44,6 @@ class DatabaseConnectionFactoryTest extends TestCase
         ], 'read_write');
 
         $this->db->setAsGlobal();
-    }
-
-    protected function tearDown(): void
-    {
-        m::close();
     }
 
     public function testConnectionCanBeCreated()

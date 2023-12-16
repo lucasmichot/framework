@@ -15,12 +15,15 @@ use Illuminate\Routing\CallableDispatcher;
 use Illuminate\Routing\Contracts\CallableDispatcher as CallableDispatcherContract;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Routing\Router;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 
 class AuthorizeMiddlewareTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     protected $container;
     protected $user;
     protected $router;
@@ -50,7 +53,7 @@ class AuthorizeMiddlewareTest extends TestCase
 
     protected function tearDown(): void
     {
-        m::close();
+        parent::tearDown();
 
         Container::setInstance(null);
     }

@@ -11,20 +11,20 @@ use Illuminate\Database\Query\Grammars\SqlServerGrammar;
 use Illuminate\Foundation\Testing\Concerns\InteractsWithDatabase;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Facade;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 
 class InteractsWithDatabaseTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     protected function setUp(): void
     {
+        parent::setUp();
+
         Facade::clearResolvedInstances();
         Facade::setFacadeApplication(null);
-    }
-
-    protected function tearDown(): void
-    {
-        m::close();
     }
 
     public function testCastToJsonSqlite()

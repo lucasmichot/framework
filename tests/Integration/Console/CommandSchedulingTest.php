@@ -52,14 +52,14 @@ class CommandSchedulingTest extends TestCase
 
     protected function tearDown(): void
     {
+        parent::tearDown();
+
         $this->fs->delete($this->logfile);
         $this->fs->delete(base_path('artisan'));
 
         if (! is_null($this->originalArtisan)) {
             $this->fs->put(base_path('artisan'), $this->originalArtisan);
         }
-
-        parent::tearDown();
     }
 
     /**

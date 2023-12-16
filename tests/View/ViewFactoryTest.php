@@ -20,6 +20,7 @@ use Illuminate\View\Factory;
 use Illuminate\View\View;
 use Illuminate\View\ViewFinderInterface;
 use InvalidArgumentException;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use ReflectionFunction;
@@ -27,10 +28,7 @@ use stdClass;
 
 class ViewFactoryTest extends TestCase
 {
-    protected function tearDown(): void
-    {
-        m::close();
-    }
+    use MockeryPHPUnitIntegration;
 
     public function testMakeCreatesNewViewInstanceWithProperPathAndEngine()
     {

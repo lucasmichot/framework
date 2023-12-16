@@ -15,6 +15,8 @@ class FileFailedJobProviderTest extends TestCase
 
     protected function setUp(): void
     {
+        parent::setUp();
+
         $this->path = @tempnam('tmp', 'file_failed_job_provider_test');
         $this->provider = new FileFailedJobProvider($this->path);
     }

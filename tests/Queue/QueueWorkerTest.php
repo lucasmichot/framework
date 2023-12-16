@@ -29,6 +29,8 @@ class QueueWorkerTest extends TestCase
 
     protected function setUp(): void
     {
+        parent::setUp();
+
         $this->events = m::spy(Dispatcher::class);
         $this->exceptionHandler = m::spy(ExceptionHandler::class);
 

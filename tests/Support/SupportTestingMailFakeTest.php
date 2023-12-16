@@ -31,6 +31,7 @@ class SupportTestingMailFakeTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->mailManager = m::mock(MailManager::class);
         $this->fake = new MailFake($this->mailManager);
         $this->mailable = new MailableStub;

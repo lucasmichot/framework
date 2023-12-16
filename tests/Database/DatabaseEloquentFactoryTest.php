@@ -16,14 +16,19 @@ use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Database\Eloquent\Model as Eloquent;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Tests\Database\Fixtures\Models\Money\Price;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 
 class DatabaseEloquentFactoryTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     protected function setUp(): void
     {
+        parent::setUp();
+
         $container = Container::getInstance();
         $container->singleton(Generator::class, function ($app, $parameters) {
             return \Faker\Factory::create('en_US');
@@ -96,7 +101,7 @@ class DatabaseEloquentFactoryTest extends TestCase
      */
     protected function tearDown(): void
     {
-        m::close();
+        parent::tearDown();
 
         $this->schema()->drop('users');
 

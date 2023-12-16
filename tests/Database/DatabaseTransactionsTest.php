@@ -5,12 +5,15 @@ namespace Illuminate\Tests\Database;
 use Exception;
 use Illuminate\Database\Capsule\Manager as DB;
 use Illuminate\Database\DatabaseTransactionsManager;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use Throwable;
 
 class DatabaseTransactionsTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     /**
      * Setup the database schema.
      *
@@ -18,6 +21,8 @@ class DatabaseTransactionsTest extends TestCase
      */
     protected function setUp(): void
     {
+        parent::setUp();
+
         $db = new DB;
 
         $db->addConnection([
@@ -53,11 +58,11 @@ class DatabaseTransactionsTest extends TestCase
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
+
         foreach (['default', 'second_connection'] as $connection) {
             $this->schema($connection)->drop('users');
         }
-
-        m::close();
     }
 
     public function testTransactionIsRecordedAndCommitted()

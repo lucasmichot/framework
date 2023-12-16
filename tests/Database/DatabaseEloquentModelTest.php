@@ -42,6 +42,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Stringable;
 use InvalidArgumentException;
 use LogicException;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
@@ -52,6 +53,7 @@ include_once 'Enums.php';
 class DatabaseEloquentModelTest extends TestCase
 {
     use InteractsWithTime;
+    use MockeryPHPUnitIntegration;
 
     protected $encrypter;
 
@@ -59,7 +61,6 @@ class DatabaseEloquentModelTest extends TestCase
     {
         parent::tearDown();
 
-        m::close();
         Carbon::setTestNow(null);
 
         Model::unsetEventDispatcher();

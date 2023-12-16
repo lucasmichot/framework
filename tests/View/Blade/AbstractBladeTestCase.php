@@ -6,11 +6,14 @@ use Illuminate\Container\Container;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\View\Compilers\BladeCompiler;
 use Illuminate\View\Component;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 
 abstract class AbstractBladeTestCase extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     /**
      * @var \Illuminate\View\Compilers\BladeCompiler
      */
@@ -25,14 +28,12 @@ abstract class AbstractBladeTestCase extends TestCase
 
     protected function tearDown(): void
     {
+        parent::tearDown();
+
         Container::setInstance(null);
         Component::flushCache();
         Component::forgetComponentsResolver();
         Component::forgetFactory();
-
-        m::close();
-
-        parent::tearDown();
     }
 
     protected function getFiles()

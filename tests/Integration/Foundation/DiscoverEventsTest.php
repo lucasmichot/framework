@@ -17,9 +17,9 @@ class DiscoverEventsTest extends TestCase
 {
     protected function tearDown(): void
     {
-        DiscoverEvents::$guessClassNamesUsingCallback = null;
-
         parent::tearDown();
+
+        DiscoverEvents::$guessClassNamesUsingCallback = null;
     }
 
     public function testEventsCanBeDiscovered()

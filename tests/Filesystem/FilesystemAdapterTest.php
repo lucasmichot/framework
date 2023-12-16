@@ -16,18 +16,23 @@ use League\Flysystem\Local\LocalFilesystemAdapter;
 use League\Flysystem\UnableToReadFile;
 use League\Flysystem\UnableToRetrieveMetadata;
 use League\Flysystem\UnableToWriteFile;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class FilesystemAdapterTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     private $tempDir;
     private $filesystem;
     private $adapter;
 
     protected function setUp(): void
     {
+        parent::setUp();
+
         $this->tempDir = __DIR__.'/tmp';
         $this->filesystem = new Filesystem(
             $this->adapter = new LocalFilesystemAdapter($this->tempDir)
@@ -36,11 +41,12 @@ class FilesystemAdapterTest extends TestCase
 
     protected function tearDown(): void
     {
+        parent::tearDown();
+
         $filesystem = new Filesystem(
             $this->adapter = new LocalFilesystemAdapter(dirname($this->tempDir))
         );
         $filesystem->deleteDirectory(basename($this->tempDir));
-        m::close();
 
         unset($this->tempDir, $this->filesystem, $this->adapter);
     }

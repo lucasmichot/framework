@@ -7,15 +7,13 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Translation\MessageSelector;
 use Illuminate\Translation\Translator;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 
 class TranslationTranslatorTest extends TestCase
 {
-    protected function tearDown(): void
-    {
-        m::close();
-    }
+    use MockeryPHPUnitIntegration;
 
     public function testHasMethodReturnsFalseWhenReturnedTranslationIsNull()
     {

@@ -24,6 +24,7 @@ use Illuminate\Pagination\Cursor;
 use Illuminate\Pagination\CursorPaginator;
 use Illuminate\Pagination\LengthAwarePaginator;
 use InvalidArgumentException;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use RuntimeException;
@@ -31,12 +32,9 @@ use stdClass;
 
 class DatabaseQueryBuilderTest extends TestCase
 {
-    protected $called;
+    use MockeryPHPUnitIntegration;
 
-    protected function tearDown(): void
-    {
-        m::close();
-    }
+    protected $called;
 
     public function testBasicSelect()
     {
