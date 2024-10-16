@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Tests\Database\stubs\TestEnum;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 
 class DatabaseEloquentMorphToTest extends TestCase
@@ -15,12 +16,7 @@ class DatabaseEloquentMorphToTest extends TestCase
 
     protected $related;
 
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-
-        m::close();
-    }
+    use MockeryPHPUnitIntegration;
 
     public function testLookupDictionaryIsProperlyConstructedForEnums()
     {

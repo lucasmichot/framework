@@ -11,17 +11,13 @@ use Illuminate\Database\Eloquent\Relations\Concerns\SupportsInverseRelations;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Str;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class DatabaseEloquentInverseRelationTest extends TestCase
 {
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-
-        m::close();
-    }
+    use MockeryPHPUnitIntegration;
 
     public function testBuilderCallbackIsNotAppliedWhenInverseRelationIsNotSet()
     {

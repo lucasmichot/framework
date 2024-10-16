@@ -9,6 +9,7 @@ use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\Facades\File;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 
 class DatabaseSQLiteBuilderTest extends TestCase
@@ -27,11 +28,12 @@ class DatabaseSQLiteBuilderTest extends TestCase
     {
         parent::tearDown();
 
-        m::close();
 
         Container::setInstance(null);
         Facade::setFacadeApplication(null);
     }
+
+    use MockeryPHPUnitIntegration;
 
     public function testCreateDatabase()
     {

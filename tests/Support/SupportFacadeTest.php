@@ -5,6 +5,7 @@ namespace Illuminate\Tests\Support;
 use ArrayAccess;
 use Illuminate\Support\Facades\Facade;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery\MockInterface;
 use PHPUnit\Framework\TestCase;
 use stdClass;
@@ -17,12 +18,7 @@ class SupportFacadeTest extends TestCase
         FacadeStub::setFacadeApplication(null);
     }
 
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-
-        m::close();
-    }
+    use MockeryPHPUnitIntegration;
 
     public function testFacadeCallsUnderlyingApplication()
     {

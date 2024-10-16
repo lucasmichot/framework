@@ -14,6 +14,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Notifications\SendQueuedNotifications;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 
 class NotificationChannelManagerTest extends TestCase
@@ -22,11 +23,10 @@ class NotificationChannelManagerTest extends TestCase
     {
         parent::tearDown();
 
-        m::close();
 
         Container::setInstance(null);
     }
-
+    use MockeryPHPUnitIntegration;
     public function testNotificationCanBeDispatchedToDriver()
     {
         $container = new Container;

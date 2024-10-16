@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Tests\Database\Fixtures\Models\Money\Price;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 
@@ -98,12 +99,13 @@ class DatabaseEloquentFactoryTest extends TestCase
     {
         parent::tearDown();
 
-        m::close();
 
         $this->schema()->drop('users');
 
         Container::setInstance(null);
     }
+
+    use MockeryPHPUnitIntegration;
 
     public function test_basic_model_can_be_created()
     {

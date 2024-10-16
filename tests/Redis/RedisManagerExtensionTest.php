@@ -6,6 +6,7 @@ use Illuminate\Contracts\Redis\Connector;
 use Illuminate\Foundation\Application;
 use Illuminate\Redis\RedisManager;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 
 class RedisManagerExtensionTest extends TestCase
@@ -43,13 +44,7 @@ class RedisManagerExtensionTest extends TestCase
         });
     }
 
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-
-        m::close();
-    }
-
+    use MockeryPHPUnitIntegration;
     public function testUsingCustomRedisConnectorWithSingleRedisInstance()
     {
         $this->assertSame(

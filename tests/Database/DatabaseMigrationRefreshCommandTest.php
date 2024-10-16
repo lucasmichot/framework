@@ -10,6 +10,7 @@ use Illuminate\Database\Console\Migrations\RollbackCommand;
 use Illuminate\Database\Events\DatabaseRefreshed;
 use Illuminate\Foundation\Application;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Application as ConsoleApplication;
 use Symfony\Component\Console\Input\ArrayInput;
@@ -22,8 +23,9 @@ class DatabaseMigrationRefreshCommandTest extends TestCase
         parent::tearDown();
 
         RefreshCommand::prohibit(false);
-        m::close();
     }
+
+    use MockeryPHPUnitIntegration;
 
     public function testRefreshCommandCallsCommandsWithProperArguments()
     {

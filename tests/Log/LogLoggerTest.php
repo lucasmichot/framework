@@ -7,18 +7,14 @@ use Illuminate\Events\Dispatcher;
 use Illuminate\Log\Events\MessageLogged;
 use Illuminate\Log\Logger;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Monolog\Logger as Monolog;
 use PHPUnit\Framework\TestCase;
 use RuntimeException;
 
 class LogLoggerTest extends TestCase
 {
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-
-        m::close();
-    }
+    use MockeryPHPUnitIntegration;
 
     public function testMethodsPassErrorAdditionsToMonolog()
     {

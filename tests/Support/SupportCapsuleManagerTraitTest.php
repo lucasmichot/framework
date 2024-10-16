@@ -7,18 +7,14 @@ use Illuminate\Container\Container;
 use Illuminate\Support\Fluent;
 use Illuminate\Support\Traits\CapsuleManagerTrait;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 
 class SupportCapsuleManagerTraitTest extends TestCase
 {
     use CapsuleManagerTrait;
 
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-
-        m::close();
-    }
+    use MockeryPHPUnitIntegration;
 
     public function testSetupContainerForCapsule()
     {

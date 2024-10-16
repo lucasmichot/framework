@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Database\Query\Builder as QueryBuilder;
 use Illuminate\Database\UniqueConstraintViolationException;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 
 class DatabaseEloquentMorphTest extends TestCase
@@ -22,8 +23,9 @@ class DatabaseEloquentMorphTest extends TestCase
 
         Relation::morphMap([], false);
 
-        m::close();
     }
+
+    use MockeryPHPUnitIntegration;
 
     public function testMorphOneSetsProperConstraints()
     {

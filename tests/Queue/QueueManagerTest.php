@@ -5,18 +5,13 @@ namespace Illuminate\Tests\Queue;
 use Illuminate\Contracts\Encryption\Encrypter;
 use Illuminate\Queue\QueueManager;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 
 class QueueManagerTest extends TestCase
 {
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-
-        m::close();
-    }
-
+    use MockeryPHPUnitIntegration;
     public function testDefaultConnectionCanBeResolved()
     {
         $app = [

@@ -11,6 +11,7 @@ use Illuminate\Database\Schema\Grammars\PostgresGrammar;
 use Illuminate\Database\Schema\Grammars\SQLiteGrammar;
 use Illuminate\Database\Schema\Grammars\SqlServerGrammar;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 
 class DatabaseSchemaBlueprintTest extends TestCase
@@ -19,9 +20,10 @@ class DatabaseSchemaBlueprintTest extends TestCase
     {
         parent::tearDown();
 
-        m::close();
         Builder::$defaultMorphKeyType = 'int';
     }
+
+    use MockeryPHPUnitIntegration;
 
     public function testToSqlRunsCommandsFromBlueprint()
     {

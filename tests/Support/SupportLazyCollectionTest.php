@@ -10,6 +10,7 @@ use Illuminate\Support\LazyCollection;
 use Illuminate\Support\Sleep;
 use InvalidArgumentException;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 
 class SupportLazyCollectionTest extends TestCase
@@ -205,8 +206,8 @@ class SupportLazyCollectionTest extends TestCase
 
         $this->assertSame([1, 2], $results);
 
-        m::close();
     }
+    use MockeryPHPUnitIntegration;
 
     public function testTapEach()
     {

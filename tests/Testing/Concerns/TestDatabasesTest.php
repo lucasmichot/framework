@@ -7,6 +7,7 @@ use Illuminate\Container\Container;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Testing\Concerns\TestDatabases;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use ReflectionMethod;
@@ -106,6 +107,6 @@ class TestDatabasesTest extends TestCase
 
         unset($_SERVER['LARAVEL_PARALLEL_TESTING']);
 
-        m::close();
     }
+    use MockeryPHPUnitIntegration;
 }

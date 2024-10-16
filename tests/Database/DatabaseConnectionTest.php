@@ -19,6 +19,7 @@ use Illuminate\Database\Query\Processors\Processor;
 use Illuminate\Database\QueryException;
 use Illuminate\Database\Schema\Builder;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PDO;
 use PDOException;
 use PDOStatement;
@@ -28,12 +29,7 @@ use stdClass;
 
 class DatabaseConnectionTest extends TestCase
 {
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-
-        m::close();
-    }
+    use MockeryPHPUnitIntegration;
 
     public function testSettingDefaultCallsGetDefaultGrammar()
     {

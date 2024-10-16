@@ -30,6 +30,7 @@ use Illuminate\Support\Sleep;
 use Illuminate\Support\Str;
 use JsonSerializable;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use OutOfBoundsException;
 use PHPUnit\Framework\AssertionFailedError;
 use PHPUnit\Framework\TestCase;
@@ -52,13 +53,7 @@ class HttpClientTest extends TestCase
         $this->factory = new Factory;
     }
 
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-
-        m::close();
-    }
-
+    use MockeryPHPUnitIntegration;
     public function testStubbedResponsesAreReturnedAfterFaking()
     {
         $this->factory->fake();

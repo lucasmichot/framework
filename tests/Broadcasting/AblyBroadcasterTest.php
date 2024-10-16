@@ -6,6 +6,7 @@ use Ably\AblyRest;
 use Illuminate\Broadcasting\Broadcasters\AblyBroadcaster;
 use Illuminate\Http\Request;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
@@ -31,8 +32,9 @@ class AblyBroadcasterTest extends TestCase
     {
         parent::tearDown();
 
-        m::close();
     }
+
+    use MockeryPHPUnitIntegration;
 
     public function testAuthCallValidAuthenticationResponseWithPrivateChannelWhenCallbackReturnTrue()
     {

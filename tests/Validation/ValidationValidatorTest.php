@@ -32,6 +32,7 @@ use Illuminate\Validation\ValidationException;
 use Illuminate\Validation\Validator;
 use InvalidArgumentException;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery\MockInterface;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\RequiresPhpExtension;
@@ -48,8 +49,8 @@ class ValidationValidatorTest extends TestCase
         parent::tearDown();
 
         Carbon::setTestNow(null);
-        m::close();
     }
+    use MockeryPHPUnitIntegration;
 
     public function testNestedErrorMessagesAreRetrievedFromLocalArray()
     {

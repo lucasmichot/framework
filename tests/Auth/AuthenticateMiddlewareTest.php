@@ -12,6 +12,7 @@ use Illuminate\Config\Repository as Config;
 use Illuminate\Container\Container;
 use Illuminate\Http\Request;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 
@@ -34,10 +35,11 @@ class AuthenticateMiddlewareTest extends TestCase
     {
         parent::tearDown();
 
-        m::close();
 
         Container::setInstance(null);
     }
+
+    use MockeryPHPUnitIntegration;
 
     public function testItCanGenerateDefinitionViaStaticMethod()
     {

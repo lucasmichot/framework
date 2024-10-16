@@ -11,6 +11,7 @@ use Illuminate\Mail\Message;
 use Illuminate\Mail\Transport\ArrayTransport;
 use Illuminate\Support\HtmlString;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 
 class MailMailerTest extends TestCase
@@ -21,8 +22,8 @@ class MailMailerTest extends TestCase
 
         unset($_SERVER['__mailer.test']);
 
-        m::close();
     }
+    use MockeryPHPUnitIntegration;
 
     public function testMailerSendSendsMessageWithProperViewContent()
     {

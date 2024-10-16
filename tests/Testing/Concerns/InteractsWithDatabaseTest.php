@@ -13,6 +13,7 @@ use Illuminate\Foundation\Testing\Concerns\InteractsWithDatabase;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Facade;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 
 class InteractsWithDatabaseTest extends TestCase
@@ -23,12 +24,7 @@ class InteractsWithDatabaseTest extends TestCase
         Facade::setFacadeApplication(null);
     }
 
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-
-        m::close();
-    }
+    use MockeryPHPUnitIntegration;
 
     public function testCastToJsonSqlite()
     {

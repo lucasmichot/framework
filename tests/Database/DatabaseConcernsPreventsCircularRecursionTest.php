@@ -4,6 +4,7 @@ namespace Illuminate\Tests\Database;
 
 use Illuminate\Database\Eloquent\Concerns\PreventsCircularRecursion;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 
 class DatabaseConcernsPreventsCircularRecursionTest extends TestCase
@@ -15,12 +16,7 @@ class DatabaseConcernsPreventsCircularRecursionTest extends TestCase
         PreventsCircularRecursionWithRecursiveMethod::$globalStack = 0;
     }
 
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-
-        m::close();
-    }
+    use MockeryPHPUnitIntegration;
 
     public function testRecursiveCallsArePreventedWithoutPreventingSubsequentCalls()
     {

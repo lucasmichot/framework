@@ -17,6 +17,7 @@ use League\Flysystem\UnableToReadFile;
 use League\Flysystem\UnableToRetrieveMetadata;
 use League\Flysystem\UnableToWriteFile;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\StreamedResponse;
@@ -43,10 +44,11 @@ class FilesystemAdapterTest extends TestCase
             $this->adapter = new LocalFilesystemAdapter(dirname($this->tempDir))
         );
         $filesystem->deleteDirectory(basename($this->tempDir));
-        m::close();
 
         unset($this->tempDir, $this->filesystem, $this->adapter);
     }
+
+    use MockeryPHPUnitIntegration;
 
     public function testResponse()
     {

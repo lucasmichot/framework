@@ -7,6 +7,7 @@ use Illuminate\Console\Command;
 use Illuminate\Console\Concerns\InteractsWithIO;
 use Illuminate\Console\OutputStyle;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Helper\ProgressBar;
@@ -15,12 +16,7 @@ use Symfony\Component\Console\Output\BufferedOutput;
 
 class InteractsWithIOTest extends TestCase
 {
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-
-        m::close();
-    }
+    use MockeryPHPUnitIntegration;
 
     #[DataProvider('iterableDataProvider')]
     public function testWithProgressBarIterable($iterable)

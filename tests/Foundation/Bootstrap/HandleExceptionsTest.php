@@ -9,6 +9,7 @@ use Illuminate\Foundation\Bootstrap\HandleExceptions;
 use Illuminate\Log\LogManager;
 use Illuminate\Support\Env;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Monolog\Handler\NullHandler;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
@@ -42,9 +43,8 @@ class HandleExceptionsTest extends TestCase
         Application::setInstance(null);
         HandleExceptions::flushState();
 
-        m::close();
     }
-
+    use MockeryPHPUnitIntegration;
     public function testPhpDeprecations()
     {
         $logger = m::mock(LogManager::class);

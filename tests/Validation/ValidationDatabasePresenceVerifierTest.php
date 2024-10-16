@@ -6,17 +6,13 @@ use Closure;
 use Illuminate\Database\ConnectionResolverInterface;
 use Illuminate\Validation\DatabasePresenceVerifier;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 
 class ValidationDatabasePresenceVerifierTest extends TestCase
 {
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-
-        m::close();
-    }
+    use MockeryPHPUnitIntegration;
 
     public function testBasicCount()
     {

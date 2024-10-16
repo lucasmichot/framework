@@ -5,6 +5,7 @@ namespace Illuminate\Tests\Integration\Testing;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery\Exception\InvalidCountException;
 use Mockery\Exception\InvalidOrderException;
 use Orchestra\Testbench\TestCase;
@@ -12,6 +13,7 @@ use PHPUnit\Framework\AssertionFailedError;
 
 class ArtisanCommandTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
     protected function setUp(): void
     {
         parent::setUp();
@@ -186,7 +188,6 @@ class ArtisanCommandTest extends TestCase
             ->expectsOutput()
             ->assertExitCode(0);
 
-        m::close();
     }
 
     public function test_console_command_that_fail_if_doesnt_output_something_and_is_not_the_expected_output()
@@ -237,7 +238,6 @@ class ArtisanCommandTest extends TestCase
             ->expectsConfirmation('Do you want to continue?', true)
             ->assertExitCode(0);
 
-        m::close();
     }
 
     public function test_console_command_that_fails_if_doesnt_expect_output_but_outputs_something()
@@ -248,7 +248,6 @@ class ArtisanCommandTest extends TestCase
             ->doesntExpectOutput()
             ->assertExitCode(0);
 
-        m::close();
     }
 
     public function test_console_command_that_fails_if_doesnt_expect_output_and_does_expect_output()
@@ -260,7 +259,6 @@ class ArtisanCommandTest extends TestCase
             ->doesntExpectOutput('My name is Taylor Otwell')
             ->assertExitCode(0);
 
-        m::close();
     }
 
     public function test_console_command_that_fails_if_the_output_does_not_contain()

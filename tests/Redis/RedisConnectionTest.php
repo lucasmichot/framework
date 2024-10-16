@@ -9,6 +9,7 @@ use Illuminate\Redis\Connections\Connection;
 use Illuminate\Redis\Connections\PhpRedisConnection;
 use Illuminate\Redis\RedisManager;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 use Predis\Client;
 use Redis;
@@ -29,8 +30,8 @@ class RedisConnectionTest extends TestCase
 
         $this->tearDownRedis();
 
-        m::close();
     }
+    use MockeryPHPUnitIntegration;
 
     public function testItSetsValuesWithExpiry()
     {

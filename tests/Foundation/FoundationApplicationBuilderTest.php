@@ -4,6 +4,7 @@ namespace Illuminate\Tests\Foundation;
 
 use Illuminate\Foundation\Application;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 
 class FoundationApplicationBuilderTest extends TestCase
@@ -12,13 +13,12 @@ class FoundationApplicationBuilderTest extends TestCase
     {
         parent::tearDown();
 
-        m::close();
 
         unset($_ENV['APP_BASE_PATH']);
 
         unset($_ENV['LARAVEL_STORAGE_PATH'], $_SERVER['LARAVEL_STORAGE_PATH']);
     }
-
+    use MockeryPHPUnitIntegration;
     public function testBaseDirectoryWithArg()
     {
         $_ENV['APP_BASE_PATH'] = __DIR__.'/as-env';

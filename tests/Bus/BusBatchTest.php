@@ -19,6 +19,7 @@ use Illuminate\Database\Query\Builder;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\CallQueuedClosure;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use RuntimeException;
@@ -80,8 +81,9 @@ class BusBatchTest extends TestCase
 
         $this->schema()->drop('job_batches');
 
-        m::close();
     }
+
+    use MockeryPHPUnitIntegration;
 
     public function test_jobs_can_be_added_to_the_batch()
     {

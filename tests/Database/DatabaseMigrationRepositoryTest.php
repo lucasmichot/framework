@@ -8,17 +8,13 @@ use Illuminate\Database\ConnectionResolverInterface;
 use Illuminate\Database\Migrations\DatabaseMigrationRepository;
 use Illuminate\Support\Collection;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 
 class DatabaseMigrationRepositoryTest extends TestCase
 {
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-
-        m::close();
-    }
+    use MockeryPHPUnitIntegration;
 
     public function testGetRanMigrationsListMigrationsByPackage()
     {

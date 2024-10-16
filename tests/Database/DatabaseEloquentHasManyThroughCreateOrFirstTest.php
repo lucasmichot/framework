@@ -13,6 +13,7 @@ use Illuminate\Database\Query\Builder;
 use Illuminate\Database\UniqueConstraintViolationException;
 use Illuminate\Support\Carbon;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PDO;
 use PHPUnit\Framework\TestCase;
 
@@ -28,8 +29,9 @@ class DatabaseEloquentHasManyThroughCreateOrFirstTest extends TestCase
         parent::tearDown();
 
         Carbon::setTestNow();
-        m::close();
     }
+
+    use MockeryPHPUnitIntegration;
 
     public function testCreateOrFirstMethodCreatesNewRecord(): void
     {

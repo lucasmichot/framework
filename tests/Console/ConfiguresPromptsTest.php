@@ -8,6 +8,7 @@ use Illuminate\Console\OutputStyle;
 use Illuminate\Console\View\Components\Factory;
 use Laravel\Prompts\Prompt;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Input\ArrayInput;
@@ -18,12 +19,7 @@ use function Laravel\Prompts\select;
 
 class ConfiguresPromptsTest extends TestCase
 {
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-
-        m::close();
-    }
+    use MockeryPHPUnitIntegration;
 
     #[DataProvider('selectDataProvider')]
     public function testSelectFallback($prompt, $expectedOptions, $expectedDefault, $return, $expectedReturn)

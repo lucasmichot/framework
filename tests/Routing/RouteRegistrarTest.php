@@ -9,6 +9,7 @@ use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Router;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 use Stringable;
 
@@ -28,13 +29,7 @@ class RouteRegistrarTest extends TestCase
         $this->router = new Router(m::mock(Dispatcher::class), Container::getInstance());
     }
 
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-
-        m::close();
-    }
-
+    use MockeryPHPUnitIntegration;
     public function testMiddlewareFluentRegistration()
     {
         $this->router->middleware(['one', 'two'])->get('users', function () {

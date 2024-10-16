@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Routing\RouteBinding;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpKernel\Exception\HttpException;
@@ -32,10 +33,11 @@ class BroadcasterTest extends TestCase
     {
         parent::tearDown();
 
-        m::close();
 
         Container::setInstance(null);
     }
+
+    use MockeryPHPUnitIntegration;
 
     public function testExtractingParametersWhileCheckingForUserAccess()
     {

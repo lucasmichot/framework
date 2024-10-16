@@ -9,6 +9,7 @@ use Illuminate\Http\Client\Factory as HttpFactory;
 use Illuminate\Http\Client\Response;
 use Illuminate\Validation\NotPwnedVerifier;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 
 class ValidationNotPwnedVerifierTest extends TestCase
@@ -17,11 +18,10 @@ class ValidationNotPwnedVerifierTest extends TestCase
     {
         parent::tearDown();
 
-        m::close();
 
         Container::setInstance(null);
     }
-
+    use MockeryPHPUnitIntegration;
     public function testEmptyValues()
     {
         $httpFactory = m::mock(HttpFactory::class);

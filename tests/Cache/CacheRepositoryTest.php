@@ -19,6 +19,7 @@ use Illuminate\Events\Dispatcher;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Carbon;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
@@ -35,10 +36,11 @@ class CacheRepositoryTest extends TestCase
     {
         parent::tearDown();
 
-        m::close();
 
         Carbon::setTestNow(null);
     }
+
+    use MockeryPHPUnitIntegration;
 
     public function testGetReturnsValueFromCache()
     {

@@ -16,6 +16,7 @@ use Illuminate\Routing\UrlGenerator;
 use Illuminate\Validation\Factory as ValidationFactory;
 use Illuminate\Validation\ValidationException;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 
 class FoundationFormRequestTest extends TestCase
@@ -26,11 +27,10 @@ class FoundationFormRequestTest extends TestCase
     {
         parent::tearDown();
 
-        m::close();
 
         $this->mocks = [];
     }
-
+    use MockeryPHPUnitIntegration;
     public function testValidatedMethodReturnsTheValidatedData()
     {
         $request = $this->createRequest(['name' => 'specified', 'with' => 'extras']);

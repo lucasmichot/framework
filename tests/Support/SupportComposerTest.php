@@ -5,17 +5,13 @@ namespace Illuminate\Tests\Support;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Composer;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Process\Process;
 
 class SupportComposerTest extends TestCase
 {
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-
-        m::close();
-    }
+    use MockeryPHPUnitIntegration;
 
     public function testDumpAutoloadRunsTheCorrectCommand()
     {

@@ -14,6 +14,7 @@ use Illuminate\Queue\Jobs\SyncJob;
 use Illuminate\Queue\SyncQueue;
 use LogicException;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 
 class QueueSyncQueueTest extends TestCase
@@ -22,10 +23,11 @@ class QueueSyncQueueTest extends TestCase
     {
         parent::tearDown();
 
-        m::close();
 
         Container::setInstance(null);
     }
+
+    use MockeryPHPUnitIntegration;
 
     public function testPushShouldFireJobInstantly()
     {

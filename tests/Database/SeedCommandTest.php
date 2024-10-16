@@ -14,6 +14,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Events\NullDispatcher;
 use Illuminate\Testing\Assert;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\NullOutput;
@@ -109,8 +110,9 @@ class SeedCommandTest extends TestCase
 
         Model::unsetEventDispatcher();
 
-        m::close();
     }
+
+    use MockeryPHPUnitIntegration;
 }
 
 class UserWithoutModelEventsSeeder extends Seeder

@@ -9,6 +9,7 @@ use Illuminate\Support\LazyCollection;
 use Illuminate\Support\MultipleItemsFoundException;
 use Illuminate\Support\Sleep;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 
@@ -1341,8 +1342,8 @@ class SupportLazyCollectionIsLazyTest extends TestCase
             });
         });
 
-        m::close();
     }
+    use MockeryPHPUnitIntegration;
 
     public function testTakeWhileIsLazy()
     {

@@ -11,6 +11,7 @@ use Illuminate\Foundation\Application as FoundationApplication;
 use Illuminate\Tests\Console\Fixtures\FakeCommandWithArrayInputPrompting;
 use Illuminate\Tests\Console\Fixtures\FakeCommandWithInputPrompting;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command as SymfonyCommand;
@@ -19,12 +20,7 @@ use Throwable;
 
 class ConsoleApplicationTest extends TestCase
 {
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-
-        m::close();
-    }
+    use MockeryPHPUnitIntegration;
 
     public function testAddSetsLaravelInstance()
     {

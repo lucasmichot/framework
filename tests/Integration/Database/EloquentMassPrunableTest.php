@@ -12,6 +12,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use LogicException;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 
 class EloquentMassPrunableTest extends DatabaseTestCase
 {
@@ -100,8 +101,8 @@ class EloquentMassPrunableTest extends DatabaseTestCase
 
         Container::setInstance(null);
 
-        m::close();
     }
+    use MockeryPHPUnitIntegration;
 }
 
 class MassPrunableTestModel extends Model

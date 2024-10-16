@@ -6,6 +6,7 @@ use Exception;
 use Illuminate\Database\Capsule\Manager as DB;
 use Illuminate\Database\DatabaseTransactionsManager;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 use Throwable;
 
@@ -59,8 +60,9 @@ class DatabaseTransactionsTest extends TestCase
             $this->schema($connection)->drop('users');
         }
 
-        m::close();
     }
+
+    use MockeryPHPUnitIntegration;
 
     public function testTransactionIsRecordedAndCommitted()
     {

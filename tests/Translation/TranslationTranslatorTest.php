@@ -8,16 +8,12 @@ use Illuminate\Support\Collection;
 use Illuminate\Translation\MessageSelector;
 use Illuminate\Translation\Translator;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 
 class TranslationTranslatorTest extends TestCase
 {
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-
-        m::close();
-    }
+    use MockeryPHPUnitIntegration;
 
     public function testHasMethodReturnsFalseWhenReturnedTranslationIsNull()
     {

@@ -16,6 +16,7 @@ use Illuminate\Routing\Contracts\CallableDispatcher as CallableDispatcherContrac
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Routing\Router;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 
@@ -52,10 +53,11 @@ class AuthorizeMiddlewareTest extends TestCase
     {
         parent::tearDown();
 
-        m::close();
 
         Container::setInstance(null);
     }
+
+    use MockeryPHPUnitIntegration;
 
     public function testItCanGenerateDefinitionViaStaticMethod()
     {

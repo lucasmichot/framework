@@ -7,6 +7,7 @@ use Illuminate\Container\Container;
 use Illuminate\Queue\Jobs\SqsJob;
 use Illuminate\Queue\SqsQueue;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 
@@ -65,12 +66,7 @@ class QueueSqsJobTest extends TestCase
         ];
     }
 
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-
-        m::close();
-    }
+    use MockeryPHPUnitIntegration;
 
     public function testFireProperlyCallsTheJobHandler()
     {

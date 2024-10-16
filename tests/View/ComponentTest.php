@@ -15,6 +15,7 @@ use Illuminate\View\ComponentSlot;
 use Illuminate\View\Factory;
 use Illuminate\View\View;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 
 class ComponentTest extends TestCase
@@ -45,7 +46,6 @@ class ComponentTest extends TestCase
     {
         parent::tearDown();
 
-        m::close();
 
         Facade::clearResolvedInstances();
         Facade::setFacadeApplication(null);
@@ -53,6 +53,8 @@ class ComponentTest extends TestCase
         Component::flushCache();
         Component::forgetFactory();
     }
+
+    use MockeryPHPUnitIntegration;
 
     public function testInlineViewsGetCreated()
     {

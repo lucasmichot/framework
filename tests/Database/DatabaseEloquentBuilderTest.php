@@ -20,6 +20,7 @@ use Illuminate\Database\Query\Processors\Processor;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection as BaseCollection;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 
@@ -31,8 +32,9 @@ class DatabaseEloquentBuilderTest extends TestCase
 
         Carbon::setTestNow(null);
 
-        m::close();
     }
+
+    use MockeryPHPUnitIntegration;
 
     public function testFindMethod()
     {

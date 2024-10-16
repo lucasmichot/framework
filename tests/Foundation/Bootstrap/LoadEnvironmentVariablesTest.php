@@ -5,6 +5,7 @@ namespace Illuminate\Tests\Foundation\Bootstrap;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 
 class LoadEnvironmentVariablesTest extends TestCase
@@ -15,9 +16,8 @@ class LoadEnvironmentVariablesTest extends TestCase
 
         unset($_ENV['FOO'], $_SERVER['FOO']);
         putenv('FOO');
-        m::close();
     }
-
+    use MockeryPHPUnitIntegration;
     protected function getAppMock($file)
     {
         $app = m::mock(Application::class);

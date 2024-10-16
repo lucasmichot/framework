@@ -48,6 +48,7 @@ use Illuminate\Support\Stringable;
 use InvalidArgumentException;
 use LogicException;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 use stdClass;
@@ -64,12 +65,13 @@ class DatabaseEloquentModelTest extends TestCase
     {
         parent::tearDown();
 
-        m::close();
         Carbon::setTestNow(null);
 
         Model::unsetEventDispatcher();
         Carbon::resetToStringFormat();
     }
+
+    use MockeryPHPUnitIntegration;
 
     public function testAttributeManipulation()
     {

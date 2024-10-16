@@ -7,6 +7,7 @@ use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\LazyCollection;
 use Illuminate\Testing\Assert;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\Attributes\AfterClass;
 use PHPUnit\Framework\Attributes\BeforeClass;
 use PHPUnit\Framework\Attributes\RequiresOperatingSystem;
@@ -37,11 +38,12 @@ class FilesystemTest extends TestCase
     {
         parent::tearDown();
 
-        m::close();
 
         $files = new Filesystem;
         $files->deleteDirectory(self::$tempDir, $preserve = true);
     }
+
+    use MockeryPHPUnitIntegration;
 
     public function testGetRetrievesFiles()
     {

@@ -5,16 +5,12 @@ namespace Illuminate\Tests\Mail;
 use Illuminate\Mail\Markdown;
 use Illuminate\View\Factory;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 
 class MailMarkdownTest extends TestCase
 {
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-
-        m::close();
-    }
+    use MockeryPHPUnitIntegration;
 
     public function testRenderFunctionReturnsHtml()
     {

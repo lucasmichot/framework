@@ -6,6 +6,7 @@ use Illuminate\Config\Repository as Config;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 
 class SupportServiceProviderTest extends TestCase
@@ -31,12 +32,7 @@ class SupportServiceProviderTest extends TestCase
         $two->boot();
     }
 
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-
-        m::close();
-    }
+    use MockeryPHPUnitIntegration;
 
     public function testPublishableServiceProviders()
     {

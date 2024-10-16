@@ -16,6 +16,7 @@ use Illuminate\Database\Events\ModelsPruned;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Foundation\Application;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\BufferedOutput;
@@ -235,8 +236,9 @@ class PruneCommandTest extends TestCase
 
         Application::setInstance(null);
 
-        m::close();
     }
+
+    use MockeryPHPUnitIntegration;
 }
 
 class PrunableTestModelWithPrunableRecords extends Model

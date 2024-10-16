@@ -8,6 +8,7 @@ use Illuminate\Notifications\RoutesNotifications;
 use Illuminate\Support\Facades\Notification;
 use InvalidArgumentException;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 
@@ -17,11 +18,10 @@ class NotificationRoutesNotificationsTest extends TestCase
     {
         parent::tearDown();
 
-        m::close();
 
         Container::setInstance(null);
     }
-
+    use MockeryPHPUnitIntegration;
     public function testNotificationCanBeDispatched()
     {
         $container = new Container;

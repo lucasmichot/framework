@@ -11,6 +11,7 @@ use Illuminate\Mail\MailManager;
 use Illuminate\Mail\Transport\SesV2Transport;
 use Illuminate\View\Factory;
 use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Mailer\Exception\TransportException;
 use Symfony\Component\Mailer\Header\MetadataHeader;
@@ -19,12 +20,7 @@ use Symfony\Component\Mime\Email;
 
 class MailSesV2TransportTest extends TestCase
 {
-    protected function tearDown(): void
-    {
-        parent::tearDown();
-
-        m::close();
-    }
+    use MockeryPHPUnitIntegration;
 
     public function testGetTransport()
     {
