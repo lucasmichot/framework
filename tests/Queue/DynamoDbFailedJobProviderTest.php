@@ -16,6 +16,7 @@ use PHPUnit\Framework\TestCase;
 class DynamoDbFailedJobProviderTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     public function testCanProperlyLogFailedJob()
     {
         $uuid = Str::orderedUuid();

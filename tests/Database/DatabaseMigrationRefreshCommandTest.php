@@ -18,14 +18,15 @@ use Symfony\Component\Console\Output\NullOutput;
 
 class DatabaseMigrationRefreshCommandTest extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     protected function tearDown(): void
     {
         parent::tearDown();
 
         RefreshCommand::prohibit(false);
     }
-
-    use MockeryPHPUnitIntegration;
 
     public function testRefreshCommandCallsCommandsWithProperArguments()
     {

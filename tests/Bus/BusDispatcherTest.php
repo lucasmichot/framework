@@ -18,6 +18,7 @@ class BusDispatcherTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testCommandsThatShouldQueueIsQueued()
     {
         $container = new Container;

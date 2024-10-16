@@ -20,6 +20,8 @@ use PHPUnit\Framework\TestCase;
 
 class SupportFacadesEventTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     private $events;
 
     protected function setUp(): void
@@ -45,7 +47,6 @@ class SupportFacadesEventTest extends TestCase
         Event::setFacadeApplication(null);
 
     }
-    use MockeryPHPUnitIntegration;
 
     public function testFakeFor()
     {

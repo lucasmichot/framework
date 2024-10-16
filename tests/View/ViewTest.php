@@ -20,6 +20,7 @@ class ViewTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testDataCanBeSetOnView()
     {
         $view = $this->getView();

@@ -18,6 +18,7 @@ class DatabaseEloquentHasManyTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testMakeMethodDoesNotSaveNewModel()
     {
         $relation = $this->getRelation();

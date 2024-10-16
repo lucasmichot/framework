@@ -15,6 +15,7 @@ class CacheDatabaseStoreTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testNullIsReturnedWhenItemNotFound()
     {
         $store = $this->getStore();

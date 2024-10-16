@@ -20,6 +20,9 @@ use PHPUnit\Framework\TestCase;
 
 class ComponentTest extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     protected $viewFactory;
 
     protected $config;
@@ -53,8 +56,6 @@ class ComponentTest extends TestCase
         Component::flushCache();
         Component::forgetFactory();
     }
-
-    use MockeryPHPUnitIntegration;
 
     public function testInlineViewsGetCreated()
     {

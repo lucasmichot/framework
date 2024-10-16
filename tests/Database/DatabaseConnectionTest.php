@@ -31,6 +31,7 @@ class DatabaseConnectionTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testSettingDefaultCallsGetDefaultGrammar()
     {
         $connection = $this->getMockConnection();

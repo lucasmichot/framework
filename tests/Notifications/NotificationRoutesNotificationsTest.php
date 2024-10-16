@@ -14,6 +14,8 @@ use stdClass;
 
 class NotificationRoutesNotificationsTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     protected function tearDown(): void
     {
         parent::tearDown();
@@ -21,7 +23,6 @@ class NotificationRoutesNotificationsTest extends TestCase
 
         Container::setInstance(null);
     }
-    use MockeryPHPUnitIntegration;
     public function testNotificationCanBeDispatched()
     {
         $container = new Container;

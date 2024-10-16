@@ -12,6 +12,9 @@ use Throwable;
 
 class DatabaseTransactionsTest extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     /**
      * Setup the database schema.
      *
@@ -61,8 +64,6 @@ class DatabaseTransactionsTest extends TestCase
         }
 
     }
-
-    use MockeryPHPUnitIntegration;
 
     public function testTransactionIsRecordedAndCommitted()
     {

@@ -18,6 +18,7 @@ class DatabaseSoftDeletingScopeTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testApplyingScopeToABuilder()
     {
         $scope = m::mock(SoftDeletingScope::class.'[extend]');

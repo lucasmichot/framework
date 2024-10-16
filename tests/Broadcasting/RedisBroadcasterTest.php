@@ -13,6 +13,9 @@ use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
 class RedisBroadcasterTest extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     /**
      * @var \Illuminate\Broadcasting\Broadcasters\RedisBroadcaster
      */
@@ -29,8 +32,6 @@ class RedisBroadcasterTest extends TestCase
             return $this->createConfig();
         });
     }
-
-    use MockeryPHPUnitIntegration;
 
     public function testAuthCallValidAuthenticationResponseWithPrivateChannelWhenCallbackReturnTrue()
     {

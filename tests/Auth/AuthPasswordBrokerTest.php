@@ -17,6 +17,7 @@ class AuthPasswordBrokerTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testIfUserIsNotFoundErrorRedirectIsReturned()
     {
         $mocks = $this->getMocks();

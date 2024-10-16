@@ -14,13 +14,14 @@ use PHPUnit\Framework\TestCase;
 
 class DatabaseEloquentHasOneTest extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     protected $builder;
 
     protected $related;
 
     protected $parent;
-
-    use MockeryPHPUnitIntegration;
 
     public function testHasOneWithDefault()
     {

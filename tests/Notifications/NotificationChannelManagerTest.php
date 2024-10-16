@@ -19,6 +19,8 @@ use PHPUnit\Framework\TestCase;
 
 class NotificationChannelManagerTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     protected function tearDown(): void
     {
         parent::tearDown();
@@ -26,7 +28,6 @@ class NotificationChannelManagerTest extends TestCase
 
         Container::setInstance(null);
     }
-    use MockeryPHPUnitIntegration;
     public function testNotificationCanBeDispatchedToDriver()
     {
         $container = new Container;

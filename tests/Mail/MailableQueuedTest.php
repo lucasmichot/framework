@@ -22,6 +22,7 @@ class MailableQueuedTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testQueuedMailableSent()
     {
         $queueFake = new QueueFake(new Application);

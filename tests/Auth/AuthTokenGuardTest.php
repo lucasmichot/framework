@@ -13,6 +13,7 @@ class AuthTokenGuardTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testUserCanBeRetrievedByQueryStringVariable()
     {
         $provider = m::mock(UserProvider::class);

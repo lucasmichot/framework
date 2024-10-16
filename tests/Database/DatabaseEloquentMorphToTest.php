@@ -12,11 +12,12 @@ use PHPUnit\Framework\TestCase;
 
 class DatabaseEloquentMorphToTest extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     protected $builder;
 
     protected $related;
-
-    use MockeryPHPUnitIntegration;
 
     public function testLookupDictionaryIsProperlyConstructedForEnums()
     {

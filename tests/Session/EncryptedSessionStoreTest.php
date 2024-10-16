@@ -13,6 +13,7 @@ use SessionHandlerInterface;
 class EncryptedSessionStoreTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     public function testSessionIsProperlyEncrypted()
     {
         $session = $this->getSession();

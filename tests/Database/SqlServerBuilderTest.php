@@ -13,6 +13,7 @@ class SqlServerBuilderTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testCreateDatabase()
     {
         $grammar = new SqlServerGrammar;

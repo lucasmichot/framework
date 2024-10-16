@@ -16,6 +16,7 @@ class DatabasePostgresSchemaGrammarTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testBasicCreateTable()
     {
         $blueprint = new Blueprint('users');

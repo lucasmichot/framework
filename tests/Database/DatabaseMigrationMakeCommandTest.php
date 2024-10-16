@@ -16,6 +16,7 @@ class DatabaseMigrationMakeCommandTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testBasicCreateDumpsAutoload()
     {
         $command = new MigrateMakeCommand(

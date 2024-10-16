@@ -20,6 +20,7 @@ class MailMailableTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testMailableSetsRecipientsCorrectly()
     {
         Container::getInstance()->instance('mailer', new class

@@ -17,6 +17,9 @@ use stdClass;
 
 class DatabaseEloquentCollectionTest extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     /**
      * Setup the database schema.
      *
@@ -65,8 +68,6 @@ class DatabaseEloquentCollectionTest extends TestCase
         $this->schema()->drop('articles');
         $this->schema()->drop('comments');
     }
-
-    use MockeryPHPUnitIntegration;
 
     public function testAddingItemsToCollection()
     {

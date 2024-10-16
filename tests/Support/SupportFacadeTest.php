@@ -12,13 +12,14 @@ use stdClass;
 
 class SupportFacadeTest extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     protected function setUp(): void
     {
         Facade::clearResolvedInstances();
         FacadeStub::setFacadeApplication(null);
     }
-
-    use MockeryPHPUnitIntegration;
 
     public function testFacadeCallsUnderlyingApplication()
     {

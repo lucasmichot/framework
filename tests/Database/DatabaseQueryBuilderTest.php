@@ -37,9 +37,10 @@ include_once 'Enums.php';
 
 class DatabaseQueryBuilderTest extends TestCase
 {
-    protected $called;
 
     use MockeryPHPUnitIntegration;
+
+    protected $called;
 
     public function testBasicSelect()
     {

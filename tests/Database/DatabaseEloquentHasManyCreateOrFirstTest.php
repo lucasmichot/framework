@@ -17,6 +17,9 @@ use PHPUnit\Framework\TestCase;
 
 class DatabaseEloquentHasManyCreateOrFirstTest extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     public function setUp(): void
     {
         Carbon::setTestNow('2023-01-01 00:00:00');
@@ -28,8 +31,6 @@ class DatabaseEloquentHasManyCreateOrFirstTest extends TestCase
 
         Carbon::setTestNow();
     }
-
-    use MockeryPHPUnitIntegration;
 
     public function testCreateOrFirstMethodCreatesNewRecord(): void
     {

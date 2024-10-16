@@ -16,6 +16,8 @@ use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 
 class EloquentMassPrunableTest extends DatabaseTestCase
 {
+    use MockeryPHPUnitIntegration;
+
     protected function setUp(): void
     {
         parent::setUp();
@@ -102,7 +104,6 @@ class EloquentMassPrunableTest extends DatabaseTestCase
         Container::setInstance(null);
 
     }
-    use MockeryPHPUnitIntegration;
 }
 
 class MassPrunableTestModel extends Model

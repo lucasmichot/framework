@@ -18,6 +18,7 @@ use PHPUnit\Framework\TestCase;
 class NotificationSenderTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     public function testItCanSendQueuedNotificationsWithAStringVia()
     {
         $notifiable = m::mock(Notifiable::class);

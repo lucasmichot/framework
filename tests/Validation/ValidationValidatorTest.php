@@ -44,13 +44,14 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class ValidationValidatorTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     protected function tearDown(): void
     {
         parent::tearDown();
 
         Carbon::setTestNow(null);
     }
-    use MockeryPHPUnitIntegration;
 
     public function testNestedErrorMessagesAreRetrievedFromLocalArray()
     {

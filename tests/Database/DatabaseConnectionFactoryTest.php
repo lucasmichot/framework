@@ -14,6 +14,9 @@ use ReflectionProperty;
 
 class DatabaseConnectionFactoryTest extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     protected $db;
 
     protected function setUp(): void
@@ -41,8 +44,6 @@ class DatabaseConnectionFactoryTest extends TestCase
 
         $this->db->setAsGlobal();
     }
-
-    use MockeryPHPUnitIntegration;
 
     public function testConnectionCanBeCreated()
     {

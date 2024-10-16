@@ -26,6 +26,9 @@ use stdClass;
 
 class DatabaseEloquentBuilderTest extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     protected function tearDown(): void
     {
         parent::tearDown();
@@ -33,8 +36,6 @@ class DatabaseEloquentBuilderTest extends TestCase
         Carbon::setTestNow(null);
 
     }
-
-    use MockeryPHPUnitIntegration;
 
     public function testFindMethod()
     {
@@ -2472,8 +2473,8 @@ class EloquentBuilderTestHigherOrderWhereScopeStub extends Model
 
 class EloquentBuilderTestNestedStub extends Model
 {
-    protected $table = 'table';
     use SoftDeletes;
+    protected $table = 'table';
 
     public function scopeEmpty($query)
     {

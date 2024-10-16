@@ -14,6 +14,9 @@ use PHPUnit\Framework\TestCase;
 
 class DatabaseSQLiteBuilderTest extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     protected function setUp(): void
     {
         $app = new Container;
@@ -32,8 +35,6 @@ class DatabaseSQLiteBuilderTest extends TestCase
         Container::setInstance(null);
         Facade::setFacadeApplication(null);
     }
-
-    use MockeryPHPUnitIntegration;
 
     public function testCreateDatabase()
     {

@@ -12,6 +12,7 @@ class EventsSubscriberTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testEventSubscribers()
     {
         $this->expectNotToPerformAssertions();

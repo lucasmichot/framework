@@ -45,6 +45,7 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 class FoundationExceptionsHandlerTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     use InteractsWithExceptionHandling;
 
     protected $config;

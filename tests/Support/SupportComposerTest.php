@@ -13,6 +13,7 @@ class SupportComposerTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testDumpAutoloadRunsTheCorrectCommand()
     {
         $composer = $this->mockComposer(['composer', 'dump-autoload']);

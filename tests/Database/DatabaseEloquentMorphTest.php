@@ -17,6 +17,9 @@ use PHPUnit\Framework\TestCase;
 
 class DatabaseEloquentMorphTest extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     protected function tearDown(): void
     {
         parent::tearDown();
@@ -24,8 +27,6 @@ class DatabaseEloquentMorphTest extends TestCase
         Relation::morphMap([], false);
 
     }
-
-    use MockeryPHPUnitIntegration;
 
     public function testMorphOneSetsProperConstraints()
     {

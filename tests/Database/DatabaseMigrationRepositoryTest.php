@@ -16,6 +16,7 @@ class DatabaseMigrationRepositoryTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testGetRanMigrationsListMigrationsByPackage()
     {
         $repo = $this->getRepository();

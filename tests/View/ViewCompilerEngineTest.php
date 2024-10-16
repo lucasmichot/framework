@@ -18,6 +18,7 @@ class ViewCompilerEngineTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testViewsMayBeRecompiledAndRendered()
     {
         $engine = $this->getEngine();

@@ -24,6 +24,7 @@ use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 class HttpResponseTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     public function testJsonResponsesAreConvertedAndHeadersAreSet()
     {
         $response = new Response(new ArrayableStub);

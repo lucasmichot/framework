@@ -17,6 +17,8 @@ use RuntimeException;
 
 class HandleExceptionsTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     protected $app;
     protected $config;
 
@@ -44,7 +46,6 @@ class HandleExceptionsTest extends TestCase
         HandleExceptions::flushState();
 
     }
-    use MockeryPHPUnitIntegration;
     public function testPhpDeprecations()
     {
         $logger = m::mock(LogManager::class);

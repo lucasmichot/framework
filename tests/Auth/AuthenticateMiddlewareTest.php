@@ -18,6 +18,9 @@ use stdClass;
 
 class AuthenticateMiddlewareTest extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     protected $auth;
 
     protected function setUp(): void
@@ -38,8 +41,6 @@ class AuthenticateMiddlewareTest extends TestCase
 
         Container::setInstance(null);
     }
-
-    use MockeryPHPUnitIntegration;
 
     public function testItCanGenerateDefinitionViaStaticMethod()
     {

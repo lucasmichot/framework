@@ -14,6 +14,7 @@ class EventTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     #[RequiresOperatingSystem('Linux|Darwin')]
     public function testBuildCommandUsingUnix()
     {

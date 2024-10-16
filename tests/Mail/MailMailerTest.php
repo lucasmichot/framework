@@ -16,6 +16,8 @@ use PHPUnit\Framework\TestCase;
 
 class MailMailerTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     protected function tearDown(): void
     {
         parent::tearDown();
@@ -23,7 +25,6 @@ class MailMailerTest extends TestCase
         unset($_SERVER['__mailer.test']);
 
     }
-    use MockeryPHPUnitIntegration;
 
     public function testMailerSendSendsMessageWithProperViewContent()
     {

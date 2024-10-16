@@ -14,6 +14,7 @@ class DatabasePostgresBuilderTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testCreateDatabase()
     {
         $grammar = new PostgresGrammar;

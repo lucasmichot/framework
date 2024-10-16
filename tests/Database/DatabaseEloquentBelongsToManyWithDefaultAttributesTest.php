@@ -15,6 +15,7 @@ class DatabaseEloquentBelongsToManyWithDefaultAttributesTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testWithPivotValueMethodSetsWhereConditionsForFetching()
     {
         $relation = $this->getMockBuilder(BelongsToMany::class)->onlyMethods(['touchIfTouching'])->setConstructorArgs($this->getRelationArguments())->getMock();

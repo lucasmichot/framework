@@ -17,6 +17,9 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class BroadcasterTest extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     /**
      * @var \Illuminate\Tests\Broadcasting\FakeBroadcaster
      */
@@ -36,8 +39,6 @@ class BroadcasterTest extends TestCase
 
         Container::setInstance(null);
     }
-
-    use MockeryPHPUnitIntegration;
 
     public function testExtractingParametersWhileCheckingForUserAccess()
     {

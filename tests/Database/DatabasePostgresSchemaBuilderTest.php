@@ -14,6 +14,7 @@ class DatabasePostgresSchemaBuilderTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testHasTable()
     {
         $connection = m::mock(Connection::class);

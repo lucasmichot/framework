@@ -12,6 +12,7 @@ use stdClass;
 class QueueManagerTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     public function testDefaultConnectionCanBeResolved()
     {
         $app = [

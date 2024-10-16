@@ -14,6 +14,7 @@ class DatabaseQueryGrammarTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testWhereRawReturnsStringWhenExpressionPassed()
     {
         $builder = m::mock(Builder::class);

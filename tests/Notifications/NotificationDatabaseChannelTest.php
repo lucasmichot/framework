@@ -13,6 +13,7 @@ class NotificationDatabaseChannelTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testDatabaseChannelCreatesDatabaseRecordWithProperData()
     {
         $notification = new NotificationDatabaseChannelTestNotification;

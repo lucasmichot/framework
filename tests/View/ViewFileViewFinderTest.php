@@ -14,6 +14,7 @@ class ViewFileViewFinderTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testBasicViewFinding()
     {
         $finder = $this->getFinder();

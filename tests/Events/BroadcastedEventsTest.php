@@ -14,6 +14,7 @@ class BroadcastedEventsTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testShouldBroadcastSuccess()
     {
         $d = m::mock(Dispatcher::class);

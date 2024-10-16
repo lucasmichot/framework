@@ -16,6 +16,8 @@ use stdClass;
 class SupportLazyCollectionIsLazyTest extends TestCase
 {
     use Concerns\CountsEnumerations;
+    use MockeryPHPUnitIntegration;
+
 
     public function testMakeWithClosureIsLazy()
     {
@@ -1343,7 +1345,6 @@ class SupportLazyCollectionIsLazyTest extends TestCase
         });
 
     }
-    use MockeryPHPUnitIntegration;
 
     public function testTakeWhileIsLazy()
     {

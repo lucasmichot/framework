@@ -9,14 +9,15 @@ use PHPUnit\Framework\TestCase;
 
 class DatabaseConcernsPreventsCircularRecursionTest extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     public function setUp(): void
     {
         parent::setUp();
 
         PreventsCircularRecursionWithRecursiveMethod::$globalStack = 0;
     }
-
-    use MockeryPHPUnitIntegration;
 
     public function testRecursiveCallsArePreventedWithoutPreventingSubsequentCalls()
     {

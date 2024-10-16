@@ -18,6 +18,7 @@ class CacheManagerTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testCustomDriverClosureBoundObjectIsCacheManager()
     {
         $cacheManager = new CacheManager([

@@ -15,6 +15,7 @@ class CacheMemcachedStoreTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testGetReturnsNullWhenNotFound()
     {
         $memcache = $this->getMockBuilder(Memcached::class)->onlyMethods(['get', 'getResultCode'])->getMock();

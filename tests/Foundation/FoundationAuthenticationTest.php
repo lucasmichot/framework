@@ -16,6 +16,9 @@ class FoundationAuthenticationTest extends TestCase
 {
     use InteractsWithAuthentication;
 
+    use MockeryPHPUnitIntegration;
+
+
     /**
      * @var \Mockery
      */
@@ -49,8 +52,6 @@ class FoundationAuthenticationTest extends TestCase
 
         return $guard;
     }
-
-    use MockeryPHPUnitIntegration;
     public function testAssertAuthenticated()
     {
         $this->mockGuard()

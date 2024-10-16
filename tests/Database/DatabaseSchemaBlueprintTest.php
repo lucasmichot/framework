@@ -16,14 +16,15 @@ use PHPUnit\Framework\TestCase;
 
 class DatabaseSchemaBlueprintTest extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     protected function tearDown(): void
     {
         parent::tearDown();
 
         Builder::$defaultMorphKeyType = 'int';
     }
-
-    use MockeryPHPUnitIntegration;
 
     public function testToSqlRunsCommandsFromBlueprint()
     {

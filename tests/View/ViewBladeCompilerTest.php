@@ -14,6 +14,7 @@ class ViewBladeCompilerTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testIsExpiredReturnsTrueIfCompiledFileDoesntExist()
     {
         $compiler = new BladeCompiler($files = $this->getFiles(), __DIR__);

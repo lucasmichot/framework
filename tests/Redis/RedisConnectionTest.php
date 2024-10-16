@@ -17,6 +17,8 @@ use Redis;
 class RedisConnectionTest extends TestCase
 {
     use InteractsWithRedis;
+    use MockeryPHPUnitIntegration;
+
 
     protected function setUp(): void
     {
@@ -31,7 +33,6 @@ class RedisConnectionTest extends TestCase
         $this->tearDownRedis();
 
     }
-    use MockeryPHPUnitIntegration;
 
     public function testItSetsValuesWithExpiry()
     {

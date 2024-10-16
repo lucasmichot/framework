@@ -15,6 +15,7 @@ class DatabaseMigrationRollbackCommandTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testRollbackCommandCallsMigratorWithProperArguments()
     {
         $command = new RollbackCommand($migrator = m::mock(Migrator::class));

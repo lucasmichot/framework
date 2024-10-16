@@ -13,6 +13,9 @@ use stdClass;
 
 class QueueSqsJobTest extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     protected $key;
     protected $secret;
     protected $service;
@@ -65,8 +68,6 @@ class QueueSqsJobTest extends TestCase
             'Attributes' => ['ApproximateReceiveCount' => 1],
         ];
     }
-
-    use MockeryPHPUnitIntegration;
 
     public function testFireProperlyCallsTheJobHandler()
     {

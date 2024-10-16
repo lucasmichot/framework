@@ -13,6 +13,7 @@ class DatabaseSoftDeletingTraitTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testDeleteSetsSoftDeletedColumn()
     {
         $model = m::mock(DatabaseSoftDeletingTraitStub::class);

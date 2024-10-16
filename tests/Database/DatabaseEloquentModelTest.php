@@ -59,6 +59,9 @@ class DatabaseEloquentModelTest extends TestCase
 {
     use InteractsWithTime;
 
+    use MockeryPHPUnitIntegration;
+
+
     protected $encrypter;
 
     protected function tearDown(): void
@@ -70,8 +73,6 @@ class DatabaseEloquentModelTest extends TestCase
         Model::unsetEventDispatcher();
         Carbon::resetToStringFormat();
     }
-
-    use MockeryPHPUnitIntegration;
 
     public function testAttributeManipulation()
     {

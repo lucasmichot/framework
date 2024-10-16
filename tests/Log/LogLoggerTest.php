@@ -16,6 +16,7 @@ class LogLoggerTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testMethodsPassErrorAdditionsToMonolog()
     {
         $writer = new Logger($monolog = m::mock(Monolog::class));

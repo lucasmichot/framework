@@ -12,6 +12,9 @@ use PHPUnit\Framework\TestCase;
 
 class ConsoleScheduledEventTest extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     /**
      * The default configuration timezone.
      *
@@ -32,8 +35,6 @@ class ConsoleScheduledEventTest extends TestCase
         date_default_timezone_set($this->defaultTimezone);
         Carbon::setTestNow(null);
     }
-
-    use MockeryPHPUnitIntegration;
 
     public function testBasicCronCompilation()
     {

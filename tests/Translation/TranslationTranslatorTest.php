@@ -15,6 +15,7 @@ class TranslationTranslatorTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testHasMethodReturnsFalseWhenReturnedTranslationIsNull()
     {
         $t = $this->getMockBuilder(Translator::class)->onlyMethods(['get'])->setConstructorArgs([$this->getLoader(), 'en'])->getMock();

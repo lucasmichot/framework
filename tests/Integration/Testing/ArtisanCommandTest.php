@@ -14,6 +14,7 @@ use PHPUnit\Framework\AssertionFailedError;
 class ArtisanCommandTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     protected function setUp(): void
     {
         parent::setUp();

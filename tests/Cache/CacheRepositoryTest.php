@@ -25,6 +25,9 @@ use PHPUnit\Framework\TestCase;
 
 class CacheRepositoryTest extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     protected function setUp(): void
     {
         parent::setUp();
@@ -39,8 +42,6 @@ class CacheRepositoryTest extends TestCase
 
         Carbon::setTestNow(null);
     }
-
-    use MockeryPHPUnitIntegration;
 
     public function testGetReturnsValueFromCache()
     {

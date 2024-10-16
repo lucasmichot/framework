@@ -12,6 +12,7 @@ use Symfony\Component\Process\Process;
 class QueueListenerTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     public function testRunProcessCallsProcess()
     {
         $process = m::mock(Process::class)->makePartial();

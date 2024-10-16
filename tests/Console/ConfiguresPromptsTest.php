@@ -21,6 +21,7 @@ class ConfiguresPromptsTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     #[DataProvider('selectDataProvider')]
     public function testSelectFallback($prompt, $expectedOptions, $expectedDefault, $return, $expectedReturn)
     {

@@ -20,6 +20,9 @@ use PHPUnit\Framework\TestCase;
 
 class QueueBeanstalkdQueueTest extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     /**
      * @var \Illuminate\Queue\BeanstalkdQueue
      */
@@ -29,8 +32,6 @@ class QueueBeanstalkdQueueTest extends TestCase
      * @var \Illuminate\Container\Container|\Mockery\LegacyMockInterface|\Mockery\MockInterface
      */
     private $container;
-
-    use MockeryPHPUnitIntegration;
     public function testPushProperlyPushesJobOntoBeanstalkd()
     {
         $uuid = Str::uuid();

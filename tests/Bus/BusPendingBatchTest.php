@@ -19,6 +19,7 @@ class BusPendingBatchTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function test_pending_batch_may_be_configured_and_dispatched()
     {
         $container = new Container;

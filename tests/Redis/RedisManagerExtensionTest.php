@@ -11,6 +11,9 @@ use PHPUnit\Framework\TestCase;
 
 class RedisManagerExtensionTest extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     /**
      * @var \Illuminate\Redis\RedisManager
      */
@@ -43,8 +46,6 @@ class RedisManagerExtensionTest extends TestCase
             return new FakeRedisConnector;
         });
     }
-
-    use MockeryPHPUnitIntegration;
     public function testUsingCustomRedisConnectorWithSingleRedisInstance()
     {
         $this->assertSame(

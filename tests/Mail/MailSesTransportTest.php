@@ -22,6 +22,7 @@ class MailSesTransportTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testGetTransport()
     {
         $container = new Container;

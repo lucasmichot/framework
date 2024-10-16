@@ -14,14 +14,15 @@ use Symfony\Component\Console\Output\NullOutput;
 
 class DatabaseMigrationResetCommandTest extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     protected function tearDown(): void
     {
         parent::tearDown();
 
         ResetCommand::prohibit(false);
     }
-
-    use MockeryPHPUnitIntegration;
 
     public function testResetCommandCallsMigratorWithProperArguments()
     {

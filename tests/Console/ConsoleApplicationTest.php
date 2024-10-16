@@ -22,6 +22,7 @@ class ConsoleApplicationTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testAddSetsLaravelInstance()
     {
         $app = $this->getMockConsole(['addToParent']);

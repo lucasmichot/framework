@@ -18,6 +18,7 @@ class DatabaseEloquentRelationTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testSetRelationFail()
     {
         $parent = new EloquentRelationResetModelStub;

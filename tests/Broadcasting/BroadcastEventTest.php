@@ -14,6 +14,7 @@ class BroadcastEventTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testBasicEventBroadcastParameterFormatting()
     {
         $broadcaster = m::mock(Broadcaster::class);

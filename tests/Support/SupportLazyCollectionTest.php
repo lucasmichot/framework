@@ -15,6 +15,8 @@ use PHPUnit\Framework\TestCase;
 
 class SupportLazyCollectionTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     public function testCanCreateEmptyCollection()
     {
         $this->assertSame([], LazyCollection::make()->all());
@@ -207,7 +209,6 @@ class SupportLazyCollectionTest extends TestCase
         $this->assertSame([1, 2], $results);
 
     }
-    use MockeryPHPUnitIntegration;
 
     public function testTapEach()
     {

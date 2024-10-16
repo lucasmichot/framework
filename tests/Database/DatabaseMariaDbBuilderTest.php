@@ -13,6 +13,7 @@ class DatabaseMariaDbBuilderTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testCreateDatabase()
     {
         $grammar = new MariaDbGrammar;

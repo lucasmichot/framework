@@ -17,6 +17,9 @@ include_once 'Enums.php';
 
 class RouteRegistrarTest extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     /**
      * @var \Illuminate\Routing\Router
      */
@@ -28,8 +31,6 @@ class RouteRegistrarTest extends TestCase
 
         $this->router = new Router(m::mock(Dispatcher::class), Container::getInstance());
     }
-
-    use MockeryPHPUnitIntegration;
     public function testMiddlewareFluentRegistration()
     {
         $this->router->middleware(['one', 'two'])->get('users', function () {

@@ -14,6 +14,7 @@ class ComponentsTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testAlert()
     {
         $output = new BufferedOutput();

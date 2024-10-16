@@ -15,6 +15,7 @@ use Symfony\Component\Console\Output\NullOutput;
 class PruneBatchesCommandTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     public function testAllowPruningAllUnfinishedBatches()
     {
         $container = new Application;

@@ -16,6 +16,9 @@ use Symfony\Component\Console\Output\NullOutput;
 
 class ClearCommandTest extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     /**
      * @var \Illuminate\Tests\Cache\ClearCommandTestStub
      */
@@ -52,8 +55,6 @@ class ClearCommandTest extends TestCase
         $app['path.storage'] = __DIR__;
         $this->command->setLaravel($app);
     }
-
-    use MockeryPHPUnitIntegration;
 
     public function testClearWithNoStoreArgument()
     {

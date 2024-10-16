@@ -16,6 +16,7 @@ class AuthDatabaseTokenRepositoryTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testCreateInsertsNewRecordIntoTable()
     {
         $repo = $this->getRepo();

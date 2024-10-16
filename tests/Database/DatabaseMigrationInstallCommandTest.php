@@ -15,6 +15,7 @@ class DatabaseMigrationInstallCommandTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testFireCallsRepositoryToInstall()
     {
         $command = new InstallCommand($repo = m::mock(MigrationRepositoryInterface::class));

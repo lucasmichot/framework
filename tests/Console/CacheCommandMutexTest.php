@@ -14,6 +14,9 @@ use PHPUnit\Framework\TestCase;
 
 class CacheCommandMutexTest extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     /**
      * @var \Illuminate\Console\CacheCommandMutex
      */
@@ -44,8 +47,6 @@ class CacheCommandMutexTest extends TestCase
             protected $name = 'command-name';
         };
     }
-
-    use MockeryPHPUnitIntegration;
 
     public function testCanCreateMutex()
     {

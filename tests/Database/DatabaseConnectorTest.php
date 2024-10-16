@@ -20,6 +20,7 @@ class DatabaseConnectorTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testOptionResolution()
     {
         $connector = new Connector;

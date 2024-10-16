@@ -16,6 +16,7 @@ class DatabaseEloquentBelongsToManyWithCastedAttributesTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testModelsAreProperlyMatchedToParents()
     {
         $relation = $this->getRelation();

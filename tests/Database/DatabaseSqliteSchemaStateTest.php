@@ -15,6 +15,7 @@ class DatabaseSqliteSchemaStateTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testLoadSchemaToDatabase(): void
     {
         $config = ['driver' => 'sqlite', 'database' => 'database/database.sqlite', 'prefix' => '', 'foreign_key_constraints' => true, 'name' => 'sqlite'];

@@ -13,6 +13,7 @@ class FoundationCacheBasedMaintenanceModeTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function test_it_determines_whether_maintenance_mode_is_active()
     {
         $cache = m::mock(Factory::class, Repository::class);

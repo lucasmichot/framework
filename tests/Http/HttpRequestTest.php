@@ -27,6 +27,7 @@ include_once 'Enums.php';
 class HttpRequestTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     public function testInstanceMethod()
     {
         $request = Request::create('');

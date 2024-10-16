@@ -24,6 +24,7 @@ class CacheEventsTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testHasTriggersEvents()
     {
         $dispatcher = $this->getDispatcher();

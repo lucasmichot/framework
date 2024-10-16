@@ -15,6 +15,7 @@ class DatabaseSqlServerSchemaGrammarTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testBasicCreateTable()
     {
         $blueprint = new Blueprint('users');

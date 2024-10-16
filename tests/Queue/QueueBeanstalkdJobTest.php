@@ -20,6 +20,7 @@ use stdClass;
 class QueueBeanstalkdJobTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     public function testFireProperlyCallsTheJobHandler()
     {
         $job = $this->getJob();

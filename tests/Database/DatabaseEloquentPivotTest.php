@@ -17,6 +17,7 @@ class DatabaseEloquentPivotTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testPropertiesAreSetCorrectly()
     {
         $parent = m::mock(Model::class.'[getConnectionName]');

@@ -17,6 +17,7 @@ use Symfony\Component\HttpFoundation\Cookie;
 class HttpRedirectResponseTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     public function testHeaderOnRedirect()
     {
         $response = new RedirectResponse('foo.bar');

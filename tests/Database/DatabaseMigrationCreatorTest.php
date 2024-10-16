@@ -13,6 +13,7 @@ class DatabaseMigrationCreatorTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testBasicCreateMethodStoresMigrationFile()
     {
         $creator = $this->getCreator();

@@ -19,6 +19,9 @@ class FoundationInteractsWithDatabaseTest extends TestCase
 {
     use InteractsWithDatabase;
 
+    use MockeryPHPUnitIntegration;
+
+
     protected $table = 'products';
 
     protected $data = [
@@ -32,8 +35,6 @@ class FoundationInteractsWithDatabaseTest extends TestCase
     {
         $this->connection = m::mock(Connection::class);
     }
-
-    use MockeryPHPUnitIntegration;
     public function testSeeInDatabaseFindsResults()
     {
         $this->mockCountBuilder(1);

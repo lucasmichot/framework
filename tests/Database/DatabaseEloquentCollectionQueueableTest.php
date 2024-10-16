@@ -13,6 +13,7 @@ class DatabaseEloquentCollectionQueueableTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testSerializesPivotsEntitiesId()
     {
         $spy = m::spy(Pivot::class);

@@ -20,6 +20,7 @@ class CommandTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testCallingClassCommandResolveCommandViaApplicationResolution()
     {
         $command = new class extends Command

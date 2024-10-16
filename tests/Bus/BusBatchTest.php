@@ -27,6 +27,9 @@ use stdClass;
 
 class BusBatchTest extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     protected function setUp(): void
     {
         $db = new DB;
@@ -82,8 +85,6 @@ class BusBatchTest extends TestCase
         $this->schema()->drop('job_batches');
 
     }
-
-    use MockeryPHPUnitIntegration;
 
     public function test_jobs_can_be_added_to_the_batch()
     {

@@ -14,6 +14,8 @@ use PHPUnit\Framework\TestCase;
 
 class ValidationNotPwnedVerifierTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     protected function tearDown(): void
     {
         parent::tearDown();
@@ -21,7 +23,6 @@ class ValidationNotPwnedVerifierTest extends TestCase
 
         Container::setInstance(null);
     }
-    use MockeryPHPUnitIntegration;
     public function testEmptyValues()
     {
         $httpFactory = m::mock(HttpFactory::class);

@@ -13,9 +13,10 @@ use PHPUnit\Framework\TestCase;
 
 class RouteListCommandTest extends TestCase
 {
-    protected Application $app;
 
     use MockeryPHPUnitIntegration;
+
+    protected Application $app;
     protected function setUp(): void
     {
         parent::setUp();

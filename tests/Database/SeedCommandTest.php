@@ -21,6 +21,9 @@ use Symfony\Component\Console\Output\NullOutput;
 
 class SeedCommandTest extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     public function testHandle()
     {
         $input = new ArrayInput(['--force' => true, '--database' => 'sqlite']);
@@ -111,8 +114,6 @@ class SeedCommandTest extends TestCase
         Model::unsetEventDispatcher();
 
     }
-
-    use MockeryPHPUnitIntegration;
 }
 
 class UserWithoutModelEventsSeeder extends Seeder

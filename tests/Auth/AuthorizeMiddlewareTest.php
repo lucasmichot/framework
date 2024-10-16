@@ -24,6 +24,9 @@ include_once 'Enums.php';
 
 class AuthorizeMiddlewareTest extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     protected $container;
     protected $user;
     protected $router;
@@ -56,8 +59,6 @@ class AuthorizeMiddlewareTest extends TestCase
 
         Container::setInstance(null);
     }
-
-    use MockeryPHPUnitIntegration;
 
     public function testItCanGenerateDefinitionViaStaticMethod()
     {

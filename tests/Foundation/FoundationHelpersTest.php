@@ -20,6 +20,7 @@ use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 class FoundationHelpersTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     public function testCache()
     {
         $app = new Application;

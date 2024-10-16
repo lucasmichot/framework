@@ -17,6 +17,9 @@ use SplFileInfo;
 
 class FilesystemTest extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     private static $tempDir;
 
     #[BeforeClass]
@@ -42,8 +45,6 @@ class FilesystemTest extends TestCase
         $files = new Filesystem;
         $files->deleteDirectory(self::$tempDir, $preserve = true);
     }
-
-    use MockeryPHPUnitIntegration;
 
     public function testGetRetrievesFiles()
     {

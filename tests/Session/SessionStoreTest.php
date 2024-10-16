@@ -19,6 +19,7 @@ class SessionStoreTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testSessionIsLoadedFromHandler()
     {
         $session = $this->getSession();

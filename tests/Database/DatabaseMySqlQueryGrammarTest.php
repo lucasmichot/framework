@@ -12,6 +12,7 @@ class DatabaseMySqlQueryGrammarTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testToRawSql()
     {
         $connection = m::mock(Connection::class);

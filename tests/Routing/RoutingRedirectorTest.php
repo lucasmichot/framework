@@ -14,6 +14,9 @@ use Symfony\Component\HttpFoundation\HeaderBag;
 
 class RoutingRedirectorTest extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     protected $headers;
     protected $request;
     protected $url;
@@ -46,8 +49,6 @@ class RoutingRedirectorTest extends TestCase
         $this->redirect = new Redirector($this->url);
         $this->redirect->setSession($this->session);
     }
-
-    use MockeryPHPUnitIntegration;
 
     public function testBasicRedirectTo()
     {

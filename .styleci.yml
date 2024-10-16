@@ -2,9 +2,6 @@ preset: laravel
 version: 8.2
 enabled:
   - nullable_type_declarations
-  - ordered_class_elements:
-      order:
-        - use_trait
 
 finder:
   not-name:

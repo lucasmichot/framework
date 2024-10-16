@@ -41,6 +41,9 @@ use Symfony\Component\VarDumper\VarDumper;
 
 class HttpClientTest extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     /**
      * @var \Illuminate\Http\Client\Factory
      */
@@ -52,8 +55,6 @@ class HttpClientTest extends TestCase
 
         $this->factory = new Factory;
     }
-
-    use MockeryPHPUnitIntegration;
     public function testStubbedResponsesAreReturnedAfterFaking()
     {
         $this->factory->fake();

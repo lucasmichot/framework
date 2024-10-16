@@ -28,6 +28,7 @@ class AuthGuardTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testBasicReturnsNullOnValidAttempt()
     {
         [$session, $provider, $request, $cookie] = $this->getMocks();

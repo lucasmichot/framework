@@ -14,6 +14,7 @@ class ValidationDatabasePresenceVerifierTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testBasicCount()
     {
         $verifier = new DatabasePresenceVerifier($db = m::mock(ConnectionResolverInterface::class));

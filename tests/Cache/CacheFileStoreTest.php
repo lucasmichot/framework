@@ -14,6 +14,9 @@ use PHPUnit\Framework\TestCase;
 
 class CacheFileStoreTest extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     protected function tearDown(): void
     {
         parent::tearDown();
@@ -131,8 +134,6 @@ class CacheFileStoreTest extends TestCase
         $result = $store->put('foo', 'baz', 10);
         $this->assertTrue($result);
     }
-
-    use MockeryPHPUnitIntegration;
 
     public function testStoreItemDirectoryProperlySetsPermissions()
     {

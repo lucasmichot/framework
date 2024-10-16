@@ -11,6 +11,9 @@ use PHPUnit\Framework\TestCase;
 
 class SupportServiceProviderTest extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     protected $app;
 
     protected function setUp(): void
@@ -31,8 +34,6 @@ class SupportServiceProviderTest extends TestCase
         $two = new ServiceProviderForTestingTwo($app);
         $two->boot();
     }
-
-    use MockeryPHPUnitIntegration;
 
     public function testPublishableServiceProviders()
     {

@@ -19,6 +19,7 @@ class DatabaseMigrationMigrateCommandTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testBasicMigrationsCallMigratorWithProperArguments()
     {
         $command = new MigrateCommand($migrator = m::mock(Migrator::class), $dispatcher = m::mock(Dispatcher::class));

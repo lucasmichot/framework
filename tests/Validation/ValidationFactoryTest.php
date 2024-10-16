@@ -15,6 +15,7 @@ class ValidationFactoryTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testMakeMethodCreatesValidValidator()
     {
         $translator = m::mock(TranslatorInterface::class);

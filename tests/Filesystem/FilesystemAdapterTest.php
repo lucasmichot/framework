@@ -24,6 +24,9 @@ use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class FilesystemAdapterTest extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     private $tempDir;
     private $filesystem;
     private $adapter;
@@ -47,8 +50,6 @@ class FilesystemAdapterTest extends TestCase
 
         unset($this->tempDir, $this->filesystem, $this->adapter);
     }
-
-    use MockeryPHPUnitIntegration;
 
     public function testResponse()
     {

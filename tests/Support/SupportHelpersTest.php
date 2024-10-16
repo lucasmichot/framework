@@ -28,6 +28,7 @@ class SupportHelpersTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testE()
     {
         $str = 'A \'quote\' is <b>bold</b>';

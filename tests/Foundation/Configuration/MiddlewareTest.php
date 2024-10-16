@@ -22,6 +22,8 @@ use Symfony\Component\HttpFoundation\Request as SymfonyRequest;
 
 class MiddlewareTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     protected function tearDown(): void
     {
         parent::tearDown();
@@ -34,7 +36,6 @@ class MiddlewareTest extends TestCase
         TrimStrings::flushState();
         TrustProxies::flushState();
     }
-    use MockeryPHPUnitIntegration;
     public function testConvertEmptyStringsToNull()
     {
         $configuration = new Middleware();

@@ -16,6 +16,7 @@ class SupportCapsuleManagerTraitTest extends TestCase
 
     use MockeryPHPUnitIntegration;
 
+
     public function testSetupContainerForCapsule()
     {
         $this->container = null;

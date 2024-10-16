@@ -1,0 +1,10 @@
+{
+    "preset": "empty",
+    "rules": {
+        "ordered_class_elements": {
+            "order": [
+                "use_trait"
+            ]
+        }
+    }
+}

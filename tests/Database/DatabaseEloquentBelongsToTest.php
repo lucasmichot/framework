@@ -13,11 +13,12 @@ use PHPUnit\Framework\TestCase;
 
 class DatabaseEloquentBelongsToTest extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     protected $builder;
 
     protected $related;
-
-    use MockeryPHPUnitIntegration;
 
     public function testBelongsToWithDefault()
     {

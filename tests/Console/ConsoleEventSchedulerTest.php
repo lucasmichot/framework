@@ -15,6 +15,9 @@ use PHPUnit\Framework\TestCase;
 
 class ConsoleEventSchedulerTest extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     /**
      * @var \Illuminate\Console\Scheduling\Schedule
      */
@@ -32,8 +35,6 @@ class ConsoleEventSchedulerTest extends TestCase
 
         $container->instance(Schedule::class, $this->schedule = new Schedule(m::mock(EventMutex::class)));
     }
-
-    use MockeryPHPUnitIntegration;
 
     public function testMutexCanReceiveCustomStore()
     {

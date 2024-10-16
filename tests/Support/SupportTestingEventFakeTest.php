@@ -11,6 +11,9 @@ use PHPUnit\Framework\TestCase;
 
 class SupportTestingEventFakeTest extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     protected $fake;
 
     protected function setUp(): void
@@ -18,8 +21,6 @@ class SupportTestingEventFakeTest extends TestCase
         parent::setUp();
         $this->fake = new EventFake(m::mock(Dispatcher::class));
     }
-
-    use MockeryPHPUnitIntegration;
 
     public function testAssertDispatched()
     {

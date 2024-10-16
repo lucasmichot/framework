@@ -21,6 +21,8 @@ use PHPUnit\Framework\TestCase;
 
 class FoundationFormRequestTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     protected $mocks = [];
 
     protected function tearDown(): void
@@ -30,7 +32,6 @@ class FoundationFormRequestTest extends TestCase
 
         $this->mocks = [];
     }
-    use MockeryPHPUnitIntegration;
     public function testValidatedMethodReturnsTheValidatedData()
     {
         $request = $this->createRequest(['name' => 'specified', 'with' => 'extras']);

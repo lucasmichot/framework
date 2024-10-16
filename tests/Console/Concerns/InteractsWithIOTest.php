@@ -18,6 +18,7 @@ class InteractsWithIOTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     #[DataProvider('iterableDataProvider')]
     public function testWithProgressBarIterable($iterable)
     {

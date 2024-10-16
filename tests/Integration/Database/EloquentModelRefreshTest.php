@@ -75,11 +75,11 @@ class EloquentModelRefreshTest extends DatabaseTestCase
 
 class Post extends Model
 {
+
+    use SoftDeletes;
     public $table = 'posts';
     public $timestamps = true;
     protected $guarded = [];
-
-    use SoftDeletes;
 
     protected static function boot()
     {

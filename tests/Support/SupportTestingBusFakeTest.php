@@ -18,6 +18,9 @@ use PHPUnit\Framework\TestCase;
 
 class SupportTestingBusFakeTest extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     /** @var \Illuminate\Support\Testing\Fakes\BusFake */
     protected $fake;
 
@@ -26,8 +29,6 @@ class SupportTestingBusFakeTest extends TestCase
         parent::setUp();
         $this->fake = new BusFake(m::mock(QueueingDispatcher::class));
     }
-
-    use MockeryPHPUnitIntegration;
 
     public function testItUsesCustomBusRepository()
     {

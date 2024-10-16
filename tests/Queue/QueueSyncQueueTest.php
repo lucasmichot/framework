@@ -19,6 +19,9 @@ use PHPUnit\Framework\TestCase;
 
 class QueueSyncQueueTest extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     protected function tearDown(): void
     {
         parent::tearDown();
@@ -26,8 +29,6 @@ class QueueSyncQueueTest extends TestCase
 
         Container::setInstance(null);
     }
-
-    use MockeryPHPUnitIntegration;
 
     public function testPushShouldFireJobInstantly()
     {

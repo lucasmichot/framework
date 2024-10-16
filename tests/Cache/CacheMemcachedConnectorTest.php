@@ -14,6 +14,7 @@ class CacheMemcachedConnectorTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testServersAreAddedCorrectly()
     {
         $memcached = $this->memcachedMockWithAddServer();

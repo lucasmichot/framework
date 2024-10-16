@@ -16,6 +16,7 @@ use PHPUnit\Framework\TestCase;
 class QueueRedisQueueTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     public function testPushProperlyPushesJobOntoRedis()
     {
         $uuid = Str::uuid();

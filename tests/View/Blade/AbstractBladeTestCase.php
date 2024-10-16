@@ -12,6 +12,9 @@ use PHPUnit\Framework\TestCase;
 
 abstract class AbstractBladeTestCase extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     /**
      * @var \Illuminate\View\Compilers\BladeCompiler
      */
@@ -34,8 +37,6 @@ abstract class AbstractBladeTestCase extends TestCase
         Component::forgetFactory();
 
     }
-
-    use MockeryPHPUnitIntegration;
 
     protected function getFiles()
     {

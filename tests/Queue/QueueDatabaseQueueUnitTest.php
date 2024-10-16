@@ -17,6 +17,7 @@ use stdClass;
 class QueueDatabaseQueueUnitTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     #[DataProvider('pushJobsDataProvider')]
     public function testPushProperlyPushesJobOntoDatabase($uuid, $job, $displayNameStartsWith, $jobStartsWith)
     {

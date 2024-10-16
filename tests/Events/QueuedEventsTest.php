@@ -17,6 +17,7 @@ class QueuedEventsTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testQueuedEventHandlersAreQueued()
     {
         $d = new Dispatcher;

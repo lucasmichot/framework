@@ -38,6 +38,7 @@ class ContextualAttributeBindingTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testDependencyCanBeResolvedFromAttributeBinding()
     {
         $container = new Container;

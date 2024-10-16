@@ -12,6 +12,7 @@ class TranslationFileLoaderTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testLoadMethodWithoutNamespacesProperlyCallsLoader()
     {
         $loader = new FileLoader($files = m::mock(Filesystem::class), __DIR__);

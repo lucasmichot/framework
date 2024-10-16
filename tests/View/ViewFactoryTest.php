@@ -30,6 +30,7 @@ class ViewFactoryTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testMakeCreatesNewViewInstanceWithProperPathAndEngine()
     {
         unset($_SERVER['__test.view']);

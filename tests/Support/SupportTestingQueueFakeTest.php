@@ -15,6 +15,9 @@ use PHPUnit\Framework\TestCase;
 
 class SupportTestingQueueFakeTest extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     /**
      * @var \Illuminate\Support\Testing\Fakes\QueueFake
      */
@@ -31,8 +34,6 @@ class SupportTestingQueueFakeTest extends TestCase
         $this->fake = new QueueFake(new Application);
         $this->job = new JobStub;
     }
-
-    use MockeryPHPUnitIntegration;
 
     public function testAssertPushed()
     {

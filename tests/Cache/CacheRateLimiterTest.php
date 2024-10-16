@@ -12,6 +12,7 @@ class CacheRateLimiterTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testTooManyAttemptsReturnTrueIfAlreadyLockedOut()
     {
         $cache = m::mock(Cache::class);

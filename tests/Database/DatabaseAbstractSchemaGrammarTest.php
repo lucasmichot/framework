@@ -13,6 +13,7 @@ class DatabaseAbstractSchemaGrammarTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testCreateDatabase()
     {
         $grammar = new class extends Grammar {};

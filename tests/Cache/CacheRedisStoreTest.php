@@ -12,6 +12,7 @@ class CacheRedisStoreTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testGetReturnsNullWhenNotFound()
     {
         $redis = $this->getRedis();

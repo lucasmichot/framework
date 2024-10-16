@@ -31,6 +31,7 @@ class DatabaseSeederTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testCallResolveTheClassAndCallsRun()
     {
         $seeder = new TestSeeder;

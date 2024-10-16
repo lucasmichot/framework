@@ -12,6 +12,7 @@ class MailMarkdownTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testRenderFunctionReturnsHtml()
     {
         $viewFactory = m::mock(Factory::class);

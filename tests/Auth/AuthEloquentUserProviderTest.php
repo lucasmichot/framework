@@ -14,6 +14,7 @@ class AuthEloquentUserProviderTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testRetrieveByIDReturnsUser()
     {
         $provider = $this->getProviderMock();

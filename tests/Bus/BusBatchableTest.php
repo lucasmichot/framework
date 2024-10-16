@@ -13,6 +13,7 @@ class BusBatchableTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function test_batch_may_be_retrieved()
     {
         $class = new class

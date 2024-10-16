@@ -17,6 +17,7 @@ class AuthDatabaseUserProviderTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testRetrieveByIDReturnsUserWhenUserIsFound()
     {
         $conn = m::mock(Connection::class);

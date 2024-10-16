@@ -10,6 +10,8 @@ use PHPUnit\Framework\TestCase;
 
 class LoadEnvironmentVariablesTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     protected function tearDown(): void
     {
         parent::tearDown();
@@ -17,7 +19,6 @@ class LoadEnvironmentVariablesTest extends TestCase
         unset($_ENV['FOO'], $_SERVER['FOO']);
         putenv('FOO');
     }
-    use MockeryPHPUnitIntegration;
     protected function getAppMock($file)
     {
         $app = m::mock(Application::class);

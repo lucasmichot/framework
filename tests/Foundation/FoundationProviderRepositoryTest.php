@@ -16,6 +16,7 @@ use stdClass;
 class FoundationProviderRepositoryTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     public function testServicesAreRegisteredWhenManifestIsNotRecompiled()
     {
         $app = m::mock(Application::class);

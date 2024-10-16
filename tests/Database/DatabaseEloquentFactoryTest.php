@@ -23,6 +23,9 @@ use ReflectionClass;
 
 class DatabaseEloquentFactoryTest extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     protected function setUp(): void
     {
         $container = Container::getInstance();
@@ -104,8 +107,6 @@ class DatabaseEloquentFactoryTest extends TestCase
 
         Container::setInstance(null);
     }
-
-    use MockeryPHPUnitIntegration;
 
     public function test_basic_model_can_be_created()
     {

@@ -19,6 +19,7 @@ class DatabaseEloquentInverseRelationTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testBuilderCallbackIsNotAppliedWhenInverseRelationIsNotSet()
     {
         $builder = m::mock(Builder::class);

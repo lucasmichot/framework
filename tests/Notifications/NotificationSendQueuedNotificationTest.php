@@ -16,6 +16,7 @@ use PHPUnit\Framework\TestCase;
 class NotificationSendQueuedNotificationTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     public function testNotificationsCanBeSent()
     {
         $job = new SendQueuedNotifications('notifiables', 'notification');

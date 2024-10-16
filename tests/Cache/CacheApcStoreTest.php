@@ -12,6 +12,7 @@ class CacheApcStoreTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testGetReturnsNullWhenNotFound()
     {
         $apc = $this->getMockBuilder(ApcWrapper::class)->onlyMethods(['get'])->getMock();

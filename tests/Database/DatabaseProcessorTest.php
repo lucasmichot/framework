@@ -14,6 +14,7 @@ class DatabaseProcessorTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testInsertGetIdProcessing()
     {
         $pdo = $this->createMock(ProcessorTestPDOStub::class);

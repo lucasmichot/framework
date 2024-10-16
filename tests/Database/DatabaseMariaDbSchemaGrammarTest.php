@@ -16,6 +16,7 @@ class DatabaseMariaDbSchemaGrammarTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testBasicCreateTable()
     {
         $blueprint = new Blueprint('users');

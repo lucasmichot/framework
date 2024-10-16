@@ -14,6 +14,9 @@ use PHPUnit\Framework\TestCase;
 
 class QueueSqsQueueTest extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     protected $sqs;
     protected $account;
     protected $queueName;
@@ -30,8 +33,6 @@ class QueueSqsQueueTest extends TestCase
     protected $mockedReceiveMessageResponseModel;
     protected $mockedReceiveEmptyMessageResponseModel;
     protected $mockedQueueAttributesResponseModel;
-
-    use MockeryPHPUnitIntegration;
     protected function setUp(): void
     {
         // Use Mockery to mock the SqsClient

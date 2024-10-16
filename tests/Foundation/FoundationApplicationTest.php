@@ -18,6 +18,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class FoundationApplicationTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     public function testSetLocaleSetsLocaleAndFiresLocaleChangedEvent()
     {
         $app = new Application;

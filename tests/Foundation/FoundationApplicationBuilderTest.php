@@ -9,6 +9,8 @@ use PHPUnit\Framework\TestCase;
 
 class FoundationApplicationBuilderTest extends TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     protected function tearDown(): void
     {
         parent::tearDown();
@@ -18,7 +20,6 @@ class FoundationApplicationBuilderTest extends TestCase
 
         unset($_ENV['LARAVEL_STORAGE_PATH'], $_SERVER['LARAVEL_STORAGE_PATH']);
     }
-    use MockeryPHPUnitIntegration;
     public function testBaseDirectoryWithArg()
     {
         $_ENV['APP_BASE_PATH'] = __DIR__.'/as-env';

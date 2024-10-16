@@ -16,6 +16,7 @@ class DatabaseSchemaBuilderTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testCreateDatabase()
     {
         $connection = m::mock(Connection::class);

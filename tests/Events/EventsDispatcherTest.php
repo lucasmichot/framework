@@ -14,6 +14,7 @@ class EventsDispatcherTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
+
     public function testBasicEventExecution()
     {
         unset($_SERVER['__event.test']);

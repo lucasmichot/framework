@@ -18,13 +18,14 @@ use PHPUnit\Framework\TestCase;
 
 class InteractsWithDatabaseTest extends TestCase
 {
+
+    use MockeryPHPUnitIntegration;
+
     protected function setUp(): void
     {
         Facade::clearResolvedInstances();
         Facade::setFacadeApplication(null);
     }
-
-    use MockeryPHPUnitIntegration;
 
     public function testCastToJsonSqlite()
     {
