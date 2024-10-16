@@ -20,14 +20,11 @@ class FoundationViteTest extends TestCase
     }
 
     protected function tearDown(): void
-    {parent::tearDown();
-
-
+    {
+        parent::tearDown();
 
         $this->cleanViteManifest();
         $this->cleanViteHotFile();
-
-
     }
 
     public function testViteWithJsOnly()

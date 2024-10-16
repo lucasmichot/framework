@@ -52,9 +52,8 @@ class DatabaseEloquentInverseRelationHasOneTest extends TestCase
      * @return void
      */
     protected function tearDown(): void
-    {parent::tearDown();
-
-
+    {
+        parent::tearDown();
 
         $this->schema()->drop('test_parent');
         $this->schema()->drop('test_child');

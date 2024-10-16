@@ -10,15 +10,12 @@ use Orchestra\Testbench\TestCase;
 class ShouldDispatchAfterCommitEventTest extends TestCase
 {
     protected function tearDown(): void
-    {parent::tearDown();
-
-
+    {
+        parent::tearDown();
 
         TransactionUnawareTestEvent::$ran = false;
         ShouldDispatchAfterCommitTestEvent::$ran = false;
         AnotherShouldDispatchAfterCommitTestEvent::$ran = false;
-
-
     }
 
     public function testEventIsDispatchedIfThereIsNoTransaction()

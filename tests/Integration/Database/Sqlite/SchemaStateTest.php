@@ -27,13 +27,10 @@ class SchemaStateTest extends TestCase
     }
 
     protected function tearDown(): void
-    {parent::tearDown();
-
-
+    {
+        parent::tearDown();
 
         remote('db:wipe')->mustRun();
-
-
     }
 
     #[RequiresOperatingSystem('Linux|Darwin')]

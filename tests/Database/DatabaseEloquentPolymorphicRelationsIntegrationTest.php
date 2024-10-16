@@ -59,9 +59,8 @@ class DatabaseEloquentPolymorphicRelationsIntegrationTest extends TestCase
      * @return void
      */
     protected function tearDown(): void
-    {parent::tearDown();
-
-
+    {
+        parent::tearDown();
 
         foreach (['default'] as $connection) {
             $this->schema($connection)->drop('posts');

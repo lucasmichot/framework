@@ -12,13 +12,10 @@ use stdClass;
 class CacheMemcachedConnectorTest extends TestCase
 {
     protected function tearDown(): void
-    {parent::tearDown();
-
-
+    {
+        parent::tearDown();
 
         m::close();
-
-
     }
 
     public function testServersAreAddedCorrectly()

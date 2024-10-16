@@ -15,11 +15,8 @@ use RuntimeException;
 class SleepTest extends TestCase
 {
     protected function tearDown(): void
-    {parent::tearDown();
-
-
-
-
+    {
+        parent::tearDown();
 
         Sleep::fake(false);
 

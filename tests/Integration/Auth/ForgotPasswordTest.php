@@ -21,14 +21,11 @@ class ForgotPasswordTest extends TestCase
     use RefreshDatabase;
 
     protected function tearDown(): void
-    {parent::tearDown();
-
-
+    {
+        parent::tearDown();
 
         ResetPassword::$createUrlCallback = null;
         ResetPassword::$toMailCallback = null;
-
-
     }
 
     protected function defineEnvironment($app)

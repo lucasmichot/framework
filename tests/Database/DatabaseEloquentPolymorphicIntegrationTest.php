@@ -67,9 +67,8 @@ class DatabaseEloquentPolymorphicIntegrationTest extends TestCase
      * @return void
      */
     protected function tearDown(): void
-    {parent::tearDown();
-
-
+    {
+        parent::tearDown();
 
         $this->schema()->drop('users');
         $this->schema()->drop('posts');

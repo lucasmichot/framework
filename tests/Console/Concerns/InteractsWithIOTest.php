@@ -16,9 +16,8 @@ use Symfony\Component\Console\Output\BufferedOutput;
 class InteractsWithIOTest extends TestCase
 {
     protected function tearDown(): void
-    {parent::tearDown();
-
-
+    {
+        parent::tearDown();
 
         m::close();
     }

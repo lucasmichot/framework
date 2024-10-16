@@ -16,9 +16,8 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 class ViewCompilerEngineTest extends TestCase
 {
     protected function tearDown(): void
-    {parent::tearDown();
-
-
+    {
+        parent::tearDown();
 
         m::close();
     }

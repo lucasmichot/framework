@@ -61,9 +61,8 @@ class EloquentModelCustomCastingTest extends TestCase
      * @return void
      */
     protected function tearDown(): void
-    {parent::tearDown();
-
-
+    {
+        parent::tearDown();
 
         $this->schema()->drop('casting_table');
         $this->schema()->drop('members');

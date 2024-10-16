@@ -22,9 +22,8 @@ use Symfony\Component\HttpFoundation\Request as SymfonyRequest;
 class MiddlewareTest extends TestCase
 {
     protected function tearDown(): void
-    {parent::tearDown();
-
-
+    {
+        parent::tearDown();
 
         m::close();
 

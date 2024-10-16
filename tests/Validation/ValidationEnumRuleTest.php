@@ -277,9 +277,8 @@ class ValidationEnumRuleTest extends TestCase
     }
 
     protected function tearDown(): void
-    {parent::tearDown();
-
-
+    {
+        parent::tearDown();
 
         Container::setInstance(null);
 

@@ -42,14 +42,11 @@ class InteractsWithDeprecationHandlingTest extends TestCase
     }
 
     protected function tearDown(): void
-    {parent::tearDown();
-
-
+    {
+        parent::tearDown();
 
         $this->deprecationsFound = false;
 
         HandleExceptions::flushHandlersState();
-
-
     }
 }

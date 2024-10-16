@@ -9,11 +9,8 @@ use RuntimeException;
 class LotteryTest extends TestCase
 {
     protected function tearDown(): void
-    {parent::tearDown();
-
-
-
-
+    {
+        parent::tearDown();
 
         Lottery::determineResultNormally();
     }

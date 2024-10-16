@@ -24,9 +24,8 @@ class LengthAwarePaginatorTest extends TestCase
     }
 
     protected function tearDown(): void
-    {parent::tearDown();
-
-
+    {
+        parent::tearDown();
 
         unset($this->p);
     }

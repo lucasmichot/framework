@@ -20,9 +20,8 @@ use Throwable;
 class ConsoleApplicationTest extends TestCase
 {
     protected function tearDown(): void
-    {parent::tearDown();
-
-
+    {
+        parent::tearDown();
 
         m::close();
     }

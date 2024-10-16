@@ -54,11 +54,8 @@ class DatabaseEloquentIrregularPluralTest extends TestCase
     }
 
     protected function tearDown(): void
-    {parent::tearDown();
-
-
-
-
+    {
+        parent::tearDown();
 
         $this->schema()->drop('irregular_plural_tokens');
         $this->schema()->drop('irregular_plural_humans');

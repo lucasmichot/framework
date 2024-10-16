@@ -17,9 +17,8 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class FoundationApplicationTest extends TestCase
 {
     protected function tearDown(): void
-    {parent::tearDown();
-
-
+    {
+        parent::tearDown();
 
         m::close();
     }

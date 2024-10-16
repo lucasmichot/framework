@@ -155,11 +155,8 @@ class ScheduleListCommandTest extends TestCase
     }
 
     protected function tearDown(): void
-    {parent::tearDown();
-
-
-
-
+    {
+        parent::tearDown();
 
         putenv('SHELL_VERBOSITY');
 

@@ -95,11 +95,8 @@ class EloquentMassPrunableTest extends DatabaseTestCase
     }
 
     protected function tearDown(): void
-    {parent::tearDown();
-
-
-
-
+    {
+        parent::tearDown();
 
         Container::setInstance(null);
 

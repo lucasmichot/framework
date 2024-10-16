@@ -30,14 +30,11 @@ class JobEncryptionTest extends DatabaseTestCase
     }
 
     protected function tearDown(): void
-    {parent::tearDown();
-
-
+    {
+        parent::tearDown();
 
         JobEncryptionTestEncryptedJob::$ran = false;
         JobEncryptionTestNonEncryptedJob::$ran = false;
-
-
     }
 
     public function testEncryptedJobPayloadIsStoredEncrypted()

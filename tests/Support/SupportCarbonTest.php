@@ -24,14 +24,11 @@ class SupportCarbonTest extends TestCase
     }
 
     protected function tearDown(): void
-    {parent::tearDown();
-
-
+    {
+        parent::tearDown();
 
         Carbon::setTestNow(null);
         Carbon::serializeUsing(null);
-
-
     }
 
     public function testInstance()

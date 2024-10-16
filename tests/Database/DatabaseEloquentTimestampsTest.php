@@ -59,9 +59,8 @@ class DatabaseEloquentTimestampsTest extends TestCase
      * @return void
      */
     protected function tearDown(): void
-    {parent::tearDown();
-
-
+    {
+        parent::tearDown();
 
         $this->schema()->drop('users');
         $this->schema()->drop('users_created_at');

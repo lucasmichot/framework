@@ -92,9 +92,8 @@ class DatabaseEloquentSoftDeletesIntegrationTest extends TestCase
      * @return void
      */
     protected function tearDown(): void
-    {parent::tearDown();
-
-
+    {
+        parent::tearDown();
 
         Carbon::setTestNow(null);
 

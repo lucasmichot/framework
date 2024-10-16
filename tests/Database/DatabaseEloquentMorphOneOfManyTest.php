@@ -48,9 +48,8 @@ class DatabaseEloquentMorphOneOfManyTest extends TestCase
      * @return void
      */
     protected function tearDown(): void
-    {parent::tearDown();
-
-
+    {
+        parent::tearDown();
 
         $this->schema()->drop('products');
         $this->schema()->drop('states');

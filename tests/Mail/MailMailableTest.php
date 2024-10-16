@@ -18,9 +18,8 @@ use PHPUnit\Framework\TestCase;
 class MailMailableTest extends TestCase
 {
     protected function tearDown(): void
-    {parent::tearDown();
-
-
+    {
+        parent::tearDown();
 
         m::close();
     }

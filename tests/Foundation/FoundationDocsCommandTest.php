@@ -37,11 +37,8 @@ class FoundationDocsCommandTest extends TestCase
     }
 
     protected function tearDown(): void
-    {parent::tearDown();
-
-
-
-
+    {
+        parent::tearDown();
 
         putenv('ARTISAN_DOCS_ASK_STRATEGY');
         putenv('ARTISAN_DOCS_OPEN_STRATEGY');

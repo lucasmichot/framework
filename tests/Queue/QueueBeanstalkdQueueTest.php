@@ -30,9 +30,8 @@ class QueueBeanstalkdQueueTest extends TestCase
     private $container;
 
     protected function tearDown(): void
-    {parent::tearDown();
-
-
+    {
+        parent::tearDown();
 
         m::close();
     }
