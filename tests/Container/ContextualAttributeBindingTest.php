@@ -36,7 +36,10 @@ use Psr\Log\LoggerInterface;
 class ContextualAttributeBindingTest extends TestCase
 {
     protected function tearDown(): void
-    {
+    {parent::tearDown();
+
+
+
         m::close();
     }
 

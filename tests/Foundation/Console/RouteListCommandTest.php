@@ -15,7 +15,10 @@ class RouteListCommandTest extends TestCase
     protected Application $app;
 
     protected function tearDown(): void
-    {
+    {parent::tearDown();
+
+
+
         m::close();
     }
 

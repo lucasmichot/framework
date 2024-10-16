@@ -21,10 +21,13 @@ class SignalsTest extends TestCase
     }
 
     protected function tearDown(): void
-    {
+    {parent::tearDown();
+
+
+
         $this->state = null;
 
-        parent::tearDown();
+
     }
 
     public function testRegister()

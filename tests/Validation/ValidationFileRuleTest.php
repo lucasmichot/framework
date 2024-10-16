@@ -400,7 +400,10 @@ class ValidationFileRuleTest extends TestCase
     }
 
     protected function tearDown(): void
-    {
+    {parent::tearDown();
+
+
+
         Container::setInstance(null);
 
         Facade::clearResolvedInstances();

@@ -10,13 +10,16 @@ use Orchestra\Testbench\TestCase;
 class ListenerTest extends TestCase
 {
     protected function tearDown(): void
-    {
-        parent::tearDown();
+    {parent::tearDown();
+
+
+
+
 
         ListenerTestListener::$ran = false;
         ListenerTestListenerAfterCommit::$ran = false;
 
-        parent::tearDown();
+
     }
 
     public function testClassListenerRunsNormallyIfNoTransactions()

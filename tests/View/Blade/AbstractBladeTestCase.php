@@ -24,7 +24,10 @@ abstract class AbstractBladeTestCase extends TestCase
     }
 
     protected function tearDown(): void
-    {
+    {parent::tearDown();
+
+
+
         Container::setInstance(null);
         Component::flushCache();
         Component::forgetComponentsResolver();
@@ -32,7 +35,7 @@ abstract class AbstractBladeTestCase extends TestCase
 
         m::close();
 
-        parent::tearDown();
+
     }
 
     protected function getFiles()

@@ -53,10 +53,13 @@ class HttpClientTest extends TestCase
     }
 
     protected function tearDown(): void
-    {
+    {parent::tearDown();
+
+
+
         m::close();
 
-        parent::tearDown();
+
     }
 
     public function testStubbedResponsesAreReturnedAfterFaking()

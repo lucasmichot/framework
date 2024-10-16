@@ -63,7 +63,10 @@ class DatabaseEloquentHasOneOfManyTest extends TestCase
      * @return void
      */
     protected function tearDown(): void
-    {
+    {parent::tearDown();
+
+
+
         $this->schema()->drop('users');
         $this->schema()->drop('logins');
         $this->schema()->drop('states');

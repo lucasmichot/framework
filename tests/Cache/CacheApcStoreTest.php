@@ -4,11 +4,19 @@ namespace Illuminate\Tests\Cache;
 
 use Illuminate\Cache\ApcStore;
 use Illuminate\Cache\ApcWrapper;
-use Mockery;
+use Mockery as m;
 use PHPUnit\Framework\TestCase;
 
 class CacheApcStoreTest extends TestCase
 {
+    protected function tearDown(): void
+    {parent::tearDown();
+
+
+
+        m::close();
+    }
+
     public function testGetReturnsNullWhenNotFound()
     {
         $apc = $this->getMockBuilder(ApcWrapper::class)->onlyMethods(['get'])->getMock();
@@ -62,7 +70,7 @@ class CacheApcStoreTest extends TestCase
 
     public function testSetMultipleMethodProperlyCallsAPC()
     {
-        $apc = Mockery::mock(ApcWrapper::class);
+        $apc = m::mock(ApcWrapper::class);
 
         $apc->shouldReceive('put')
             ->once()

@@ -42,7 +42,10 @@ class ComponentTest extends TestCase
     }
 
     protected function tearDown(): void
-    {
+    {parent::tearDown();
+
+
+
         m::close();
 
         Facade::clearResolvedInstances();
@@ -51,7 +54,7 @@ class ComponentTest extends TestCase
         Component::flushCache();
         Component::forgetFactory();
 
-        parent::tearDown();
+
     }
 
     public function testInlineViewsGetCreated()

@@ -95,7 +95,10 @@ class DatabaseEloquentFactoryTest extends TestCase
      * @return void
      */
     protected function tearDown(): void
-    {
+    {parent::tearDown();
+
+
+
         m::close();
 
         $this->schema()->drop('users');

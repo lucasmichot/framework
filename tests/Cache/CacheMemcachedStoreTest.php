@@ -13,10 +13,13 @@ use PHPUnit\Framework\TestCase;
 class CacheMemcachedStoreTest extends TestCase
 {
     protected function tearDown(): void
-    {
+    {parent::tearDown();
+
+
+
         m::close();
 
-        parent::tearDown();
+
     }
 
     public function testGetReturnsNullWhenNotFound()

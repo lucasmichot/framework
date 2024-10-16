@@ -225,7 +225,10 @@ class CliDumperTest extends TestCase
     }
 
     protected function tearDown(): void
-    {
+    {parent::tearDown();
+
+
+
         CliDumper::resolveDumpSourceUsing(null);
     }
 }

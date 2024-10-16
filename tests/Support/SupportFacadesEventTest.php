@@ -37,7 +37,10 @@ class SupportFacadesEventTest extends TestCase
     }
 
     protected function tearDown(): void
-    {
+    {parent::tearDown();
+
+
+
         Event::clearResolvedInstances();
         Event::setFacadeApplication(null);
 

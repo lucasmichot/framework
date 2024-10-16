@@ -12,7 +12,10 @@ use PHPUnit\Framework\TestCase;
 class DatabasePostgresSchemaBuilderTest extends TestCase
 {
     protected function tearDown(): void
-    {
+    {parent::tearDown();
+
+
+
         m::close();
     }
 

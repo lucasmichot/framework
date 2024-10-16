@@ -16,10 +16,13 @@ use SplFileInfo;
 class DiscoverEventsTest extends TestCase
 {
     protected function tearDown(): void
-    {
+    {parent::tearDown();
+
+
+
         DiscoverEvents::$guessClassNamesUsingCallback = null;
 
-        parent::tearDown();
+
     }
 
     public function testEventsCanBeDiscovered()

@@ -53,7 +53,10 @@ class DatabaseEloquentInverseRelationHasManyTest extends TestCase
      * @return void
      */
     protected function tearDown(): void
-    {
+    {parent::tearDown();
+
+
+
         $this->schema()->drop('test_users');
         $this->schema()->drop('test_posts');
     }

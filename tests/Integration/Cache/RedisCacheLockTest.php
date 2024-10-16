@@ -19,8 +19,11 @@ class RedisCacheLockTest extends TestCase
     }
 
     protected function tearDown(): void
-    {
-        parent::tearDown();
+    {parent::tearDown();
+
+
+
+
 
         $this->tearDownRedis();
     }

@@ -18,10 +18,13 @@ class WithScheduleTest extends TestCase
     }
 
     protected function tearDown(): void
-    {
+    {parent::tearDown();
+
+
+
         ScheduleListCommand::resolveTerminalWidthUsing(null);
 
-        parent::tearDown();
+
     }
 
     protected function resolveApplication()

@@ -39,7 +39,10 @@ class DatabaseQueryBuilderTest extends TestCase
     protected $called;
 
     protected function tearDown(): void
-    {
+    {parent::tearDown();
+
+
+
         m::close();
     }
 

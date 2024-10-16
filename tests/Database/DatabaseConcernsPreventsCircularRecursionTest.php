@@ -3,7 +3,7 @@
 namespace Illuminate\Tests\Database;
 
 use Illuminate\Database\Eloquent\Concerns\PreventsCircularRecursion;
-use Mockery;
+use Mockery as m;
 use PHPUnit\Framework\TestCase;
 
 class DatabaseConcernsPreventsCircularRecursionTest extends TestCase
@@ -13,6 +13,14 @@ class DatabaseConcernsPreventsCircularRecursionTest extends TestCase
         parent::setUp();
 
         PreventsCircularRecursionWithRecursiveMethod::$globalStack = 0;
+    }
+
+    protected function tearDown(): void
+    {parent::tearDown();
+
+
+
+        m::close();
     }
 
     public function testRecursiveCallsArePreventedWithoutPreventingSubsequentCalls()
@@ -176,7 +184,7 @@ class DatabaseConcernsPreventsCircularRecursionTest extends TestCase
 
     public function testMockedModelCallToWithoutRecursionMethodWorks(): void
     {
-        $mock = Mockery::mock(TestModel::class)->makePartial();
+        $mock = m::mock(TestModel::class)->makePartial();
 
         // Model toArray method implementation
         $toArray = $mock->withoutRecursion(

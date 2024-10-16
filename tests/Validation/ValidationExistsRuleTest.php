@@ -289,7 +289,10 @@ class ValidationExistsRuleTest extends TestCase
      * @return void
      */
     protected function tearDown(): void
-    {
+    {parent::tearDown();
+
+
+
         $this->schema('default')->drop('users');
     }
 

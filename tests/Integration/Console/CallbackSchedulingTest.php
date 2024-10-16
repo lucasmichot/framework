@@ -46,10 +46,13 @@ class CallbackSchedulingTest extends TestCase
     }
 
     protected function tearDown(): void
-    {
+    {parent::tearDown();
+
+
+
         Container::setInstance(null);
 
-        parent::tearDown();
+
     }
 
     public function testExecutionOrder()

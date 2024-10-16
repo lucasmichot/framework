@@ -32,7 +32,10 @@ class SupportServiceProviderTest extends TestCase
     }
 
     protected function tearDown(): void
-    {
+    {parent::tearDown();
+
+
+
         m::close();
     }
 

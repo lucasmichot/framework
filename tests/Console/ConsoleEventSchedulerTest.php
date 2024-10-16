@@ -33,7 +33,10 @@ class ConsoleEventSchedulerTest extends TestCase
     }
 
     protected function tearDown(): void
-    {
+    {parent::tearDown();
+
+
+
         m::close();
     }
 

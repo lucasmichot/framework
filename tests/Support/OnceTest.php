@@ -8,8 +8,11 @@ use PHPUnit\Framework\TestCase;
 class OnceTest extends TestCase
 {
     protected function tearDown(): void
-    {
-        parent::tearDown();
+    {parent::tearDown();
+
+
+
+
 
         Once::flush();
         Once::enable();
